@@ -234,7 +234,8 @@ footer{
         width: 100%;
     }
     .text__section__image img{
-        width: 43%;
+        width: 80%;
+        transform: translate(30%,-25%);
     }
     .section__home button{
         margin: 2rem auto;
@@ -312,6 +313,9 @@ footer{
     }
 }
 @media screen and (max-width: 548px){
+    .section__home{
+        height: 100vh;
+    }
     .text__section{
         width: 100%;
     }
@@ -319,7 +323,8 @@ footer{
         font-size: 30px;
     }
     .text__section__image img{
-        width: 75%;
+        width: 100%;
+        left: -20%;
     }
 
     /* about us */

@@ -1,19 +1,21 @@
 import React from 'react'
 /* styles */
 import './header.scss'
+/* router */
+import { Link } from 'react-router-dom'
 
 const Header =()=>{
     return(
         <>
             <nav>
                 <div className="wrapper">
-                    <div className="logo"><a href="#">Go | Application</a></div>
+                    <div className="logo"><Link to="/">Go | Application</Link></div>
                     <input type="radio" name="slider" id="menu-btn" />
                     <input type="radio" name="slider" id="close-btn" />
                     <ul className="nav-links">
                         <label for="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/product">Productos</Link></li>
                         <li>
                             <a href="#" className="desktop-item">Dropdown Menu</a>
                             <input type="checkbox" id="showDrop" />
@@ -64,7 +66,7 @@ const Header =()=>{
                             </div>
                         </div>
                     </li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><Link to="/application">Movil</Link></li>
                     </ul>
                     <label for="menu-btn" className="btn menu-btn"><i className="fas fa-bars"></i></label>
                 </div>
