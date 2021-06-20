@@ -10,7 +10,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: #47525E;
+    background: $color-third;
     color: #fff;
     .container-banner{
         width: 80%;
@@ -27,7 +27,7 @@
     }
 }
 .container-banner .text-error span{
-    color: rgb(255, 73, 73);
+    color: $error-color;
     font-weight: 500;
 }
 .container-banner .text-error p{
@@ -43,7 +43,7 @@
 .drop{
     width: 70px;
     height: 70px;
-    background: rgb(255, 86, 86);
+    background: $error-color;
     position: absolute;
     border-radius: 50%;
     left: 5%;

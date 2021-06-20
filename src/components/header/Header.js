@@ -16,7 +16,7 @@ const Header =()=>{
                         <label for="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/product">Productos</Link></li>
-                        <li>
+                        {/* <li>
                             <a href="#" className="desktop-item">Dropdown Menu</a>
                             <input type="checkbox" id="showDrop" />
                             <label for="showDrop" className="mobile-item">Dropdown Menu</label>
@@ -26,7 +26,8 @@ const Header =()=>{
                                 <li><a href="#">Drop menu 3</a></li>
                                 <li><a href="#">Drop menu 4</a></li>
                             </ul>
-                        </li>
+                        </li> */}
+                        <li><Link to="/business">Empresas</Link></li>
                         <li>
                             <a href="#" className="desktop-item">Mega Menu</a>
                             <input type="checkbox" id="showMega"/>

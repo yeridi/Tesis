@@ -6,7 +6,8 @@ import Index from '../../pages/index'
 import Application from '../../pages/application'
 import Product from '../../pages/products'
 import Error from '../../pages/Error'
-import Loader from '../loader/Loader'
+import Loader from '../loader/Loader' /* is not necesary */
+import Business from '../../pages/Business'
 
 const App = () => {
     return(
@@ -16,6 +17,7 @@ const App = () => {
                 <Route exact path="/application" component={Application}></Route>
                 <Route exact path="/product" component={Product}></Route>
                 <Route exact path="/load" component={Loader}></Route>
+                <Route exact path="/business" component={Business}></Route>
                 <Route component={Error}></Route>
             </Switch>
         </BrowserRouter>
