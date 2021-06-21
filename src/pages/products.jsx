@@ -1,8 +1,9 @@
 import React, { useEffect, useState }from 'react'
+/* components */
 import Products from '../components/product/infoProducts'
 import Header from '../components/header/Header'
 import Loader from '../components/loader/Loader'
-
+import Search from '../components/search/Searh'
 
 /* styles */
 
@@ -13,9 +14,13 @@ const Product =() =>{
     const APP_KEY = '0df9fcf9f827f56c4e5f94f6ba100781';
 
     const [info, setInfo] = useState([]);
-    const [search, setSearch]= useState('');
     const [query, setQuery] = useState('chicken');
     const [load, setLoad] = useState(true);
+
+
+    /* for the function of search */
+
+    const [inputText, setInputText] = useState("");
 
     const exampleReq = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
     
@@ -34,14 +39,11 @@ const Product =() =>{
         }
     }
 
-    const updateSearch = e => {
-        setSearch(e.target.value)
+    const getSearch = e =>{
+        e.preventDefault();
+        setQuery(inputText);
     }
 
-    const getSeearch = e =>{
-        e.preventDefault();
-        setQuery(search);
-    }
     if(load){
         return <Loader/>
     }
@@ -49,12 +51,16 @@ const Product =() =>{
         <>
             <Header/>
             <div className="container__items">
-                <form onSubmit={getSeearch} className="search__form">
+                <Search
+                    setInputText={setInputText}
+                    getSearch={getSearch}
+                />
+                {/* <form onSubmit={getSeearch} className="search__form">
                     <div className="search__box">
                         <input type="text"  className="search__bar" value={search} onChange={updateSearch} placeholder="Buscar..."/>
                         <button type="submit" className="searh__button"><i class="fas fa-search"></i></button>
                     </div>
-                </form>
+                </form> */}
                 <div className="container__products">
                     {info.map(infos =>(
                         <Products 
