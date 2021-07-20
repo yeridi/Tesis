@@ -1,4 +1,5 @@
 .container-workers {
+	padding-top: 4rem;
 	width: 80%;
 	margin: auto;
 	text-align: center;
@@ -68,9 +69,10 @@
 				}
 				.header-card-worker {
 					h4 {
-						transform: translateY(-280%);
+						transition: all 500ms;
+						transform: translateY(-50%);
 						font-weight: bolder;
-						color: #000;
+						color: #fff;
 						&::after {
 							width: 100%;
 						}
@@ -215,9 +217,9 @@
 } 
 @media screen and (max-width: 650px){
     .container-workers{
-        width: 70%;
-    }
-    .container-workers .each-worker{
-        grid-template-columns: 1fr;
-    }
+		width: 80%; 	
+		.each-worker{
+        	grid-template-columns: repeat(1,1fr);
+    	}
+	}
 }

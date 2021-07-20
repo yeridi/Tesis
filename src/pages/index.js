@@ -6,11 +6,11 @@ import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
 
 
-class Index extends React.Component{
-    render(){
-        return(
+class Index extends React.Component {
+    render() {
+        return (
             <>
-                <Header/>
+                <Header />
                 <section className="section__home">
                     <div className="text__section wow animate__animated animate__fadeIn">
                         <div className="text__section__information">
@@ -49,37 +49,37 @@ class Index extends React.Component{
                 <section className="services wow animate__animated animate__fadeIn animate__slow">
                     <div className="services__container">
                         <div className="swiper-container mySwiper">
-                        <div className="swiper-wrapper">
-                            <div className="swiper-slide">
-                            <div className="swiper__content">
-                                <h3>Venta</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
-                                <i>Somos los mejores</i>
+                            <div className="swiper-wrapper">
+                                <div className="swiper-slide">
+                                    <div className="swiper__content">
+                                        <h3>Venta</h3>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
+                                        <i>Somos los mejores</i>
+                                    </div>
+                                </div>
+                                <div className="swiper-slide">
+                                    <div className="swiper__content">
+                                        <h3>Marketing</h3>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
+                                        <i>Somos los mejores</i>
+                                    </div>
+                                </div>
+                                <div className="swiper-slide">
+                                    <div className="swiper__content">
+                                        <h3>Entrega</h3>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
+                                        <i>Somos los mejores</i>
+                                    </div>
+                                </div>
+                                <div className="swiper-slide">
+                                    <div className="swiper__content">
+                                        <h3>Venta</h3>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
+                                        <i>Somos los mejores</i>
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                            <div className="swiper-slide">
-                            <div className="swiper__content">
-                                <h3>Marketing</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
-                                <i>Somos los mejores</i>
-                            </div>
-                            </div>
-                            <div className="swiper-slide">
-                            <div className="swiper__content">
-                                <h3>Entrega</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
-                                <i>Somos los mejores</i>
-                            </div>
-                            </div>
-                            <div className="swiper-slide">
-                            <div className="swiper__content">
-                                <h3>Venta</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo temporibus pariatur tempora facilis porro officia asperiores quidem nostrum a sed?</p>
-                                <i>Somos los mejores</i>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="swiper-pagination"></div>
+                            <div className="swiper-pagination"></div>
                         </div>
                         <div className="services__title">
                             <h1>¿Cuales son nuestros Servicios?</h1>
@@ -95,7 +95,7 @@ class Index extends React.Component{
                         <a href="">Sigue la Guia</a>
                     </div>
                 </section>
-                <Footer/>
+                <Footer />
             </>
         )
     }

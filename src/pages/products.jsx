@@ -4,6 +4,7 @@ import Products from '../components/product/infoProducts'
 import Header from '../components/header/Header'
 import Loader from '../components/loader/Loader'
 import Search from '../components/search/Searh'
+import Footer from '../components/footer/Footer'
 
 /* styles */
 
@@ -72,6 +73,7 @@ const Product =() =>{
                     ))}
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }

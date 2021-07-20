@@ -1,4 +1,6 @@
 import React from 'react'
+/* styles */
+import './search.scss'
 
 const Search = (props) => {
     const updateSearch = e => {
@@ -7,7 +9,7 @@ const Search = (props) => {
 
     return (
         <>
-            <form className="search__form">
+            <form className="search__form wow animate__animated animate__jackInTheBox animate__slow">
                 <div className="search__box">
                     <input type="text" className="search__bar" placeholder="Buscar..." onChange={updateSearch}/>
                     <button type="submit" className="searh__button" onClick={props.getSearch}><i class="fas fa-search"></i></button>

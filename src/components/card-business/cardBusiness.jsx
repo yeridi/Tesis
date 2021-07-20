@@ -21,7 +21,7 @@ const cardBusiness = ({title, img}) => {
 
     return (
         <>
-            <div class="card-worker">
+            <div class="card-worker wow animate__animated animate__fadeIn animate__slow">
                 <div class="header-card-worker">
                     <img src={img} alt="" id="image-business"/>
                     <h4 id="title-business">{title}</h4>
