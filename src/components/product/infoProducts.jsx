@@ -7,7 +7,13 @@ const Products = ({title,calories,image}) => {
     return(
         <div class="card wow animate__animated animate__fadeIn animate__slow">
             <div className="card-image">
-                <img src={image} alt="" />
+                <figure>
+                    <img src={image} alt="" />
+                    <img src={image} alt="" />
+                    <img src={image} alt="" />
+                    <img src="https://img.freepik.com/foto-gratis/ensalada-pechuga-pollo-parrilla-vegetales-frescos-tomates-pepinos-hojas-lechuga-ensalada-pollo-comida-sana_2829-4246.jpg?size=626&ext=jpg" alt="" />
+                    <img src={image} alt="" />
+                </figure> 
             </div>
             <div className="card-text">
                 <span className="date">4 days ago</span>

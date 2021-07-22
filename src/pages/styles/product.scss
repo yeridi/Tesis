@@ -7,11 +7,12 @@
     .product-and-filter{
         display: flex;
         .filters{
-            width: 55%;
+            width: 30%;
             padding: 1rem;
         }
     }
     .container__products{
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(3,1fr);
     }
