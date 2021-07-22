@@ -5,7 +5,10 @@ import Header from '../components/header/Header'
 import Loader from '../components/loader/Loader'
 import Search from '../components/search/Searh'
 import Footer from '../components/footer/Footer'
+import Selected from '../components/filters/Selected'
 
+/* error component */
+import NoResults from '../components/Errors/NoResults'
 /* styles */
 
 import './styles/product.scss'
@@ -15,9 +18,8 @@ const Product =() =>{
     const APP_KEY = '0df9fcf9f827f56c4e5f94f6ba100781';
 
     const [info, setInfo] = useState([]);
-    const [query, setQuery] = useState('chicken');
+    const [query, setQuery] = useState("chicken");
     const [load, setLoad] = useState(true);
-
 
     /* for the function of search */
 
@@ -34,6 +36,7 @@ const Product =() =>{
             const response = await fetch(exampleReq);
             const data = await response.json();
             setInfo(data.hits);
+            console.log(data.hits)
             setLoad(false)
         }catch (error){
             /* more code */
@@ -45,12 +48,24 @@ const Product =() =>{
         setQuery(inputText);
     }
 
+    /* filters */
+    const filterProducts = (e) =>{
+        setQuery(e.target.value)
+        console.log(e.target.value)
+    }
+
+
+
     if(load){
         return <Loader/>
     }
     return(
         <>
+            {/* Header */}
+
             <Header/>
+
+            {/* Items - Product */}
             <div className="container__items">
                 <Search
                     setInputText={setInputText}
@@ -62,15 +77,35 @@ const Product =() =>{
                         <button type="submit" className="searh__button"><i class="fas fa-search"></i></button>
                     </div>
                 </form> */}
-                <div className="container__products">
-                    {info.map(infos =>(
-                        <Products 
-                            key={infos.recipe.label}
-                            title={infos.recipe.label} 
-                            calories={infos.recipe.calories} 
-                            image={infos.recipe.image}
-                        />
-                    ))}
+
+                <div className="product-and-filter">
+                    {/* Filter */}
+                    <div className="filters">
+                        <div className="each-filter">
+                            <h2>FILTERS</h2>
+                            <Selected
+                                filterProducts={filterProducts}
+                                newvalue={query}
+                            />
+                        </div>
+                    </div>
+                    {/* products list*/}
+                    <div className="container__products">
+                        {info == "" ? (
+                            <NoResults/>
+                            ) : (
+                                info.map(infos =>(
+                                    <Products 
+                                        key={infos.recipe.label}
+                                        title={infos.recipe.label} 
+                                        calories={infos.recipe.calories} 
+                                        image={infos.recipe.image}
+                                    />
+                                ))
+                            )
+                        } 
+                        
+                    </div>
                 </div>
             </div>
             <Footer/>

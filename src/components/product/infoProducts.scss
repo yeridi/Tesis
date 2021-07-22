@@ -1,5 +1,6 @@
 @import '../stylesGeneral/general.scss';
 .card {
+    width: 80%;
     display: grid;
     grid-template-rows: 210px auto 50px;
     grid-template-areas: "image" "text" "stats";
@@ -10,7 +11,7 @@
     text-align: center;
     transition: 0.5s ease;
     cursor: pointer;
-    margin:30px;
+    margin:1rem auto;
     &:hover {
         transform: scale(1.05);
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.171);

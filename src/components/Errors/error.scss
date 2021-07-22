@@ -117,6 +117,16 @@
     }
 }
 
+/* error api */
+.error-api {
+    background: red;
+    width: 100%;
+    margin: auto;
+    img{
+        width: 100%;
+    }
+}
+
 @media screen and (max-width:1100px){
     .container-banner{
         text-align: center;

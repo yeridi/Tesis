@@ -1,15 +1,26 @@
 @import '../../components/stylesGeneral/general.scss';
 
 .container__items{
-    width: 80%;
+    width: 95%;
     margin:auto;
     padding: 2rem 1rem;
+    .product-and-filter{
+        display: flex;
+        .filters{
+            width: 55%;
+            padding: 1rem;
+        }
+    }
     .container__products{
         display: grid;
         grid-template-columns: repeat(3,1fr);
-        gap: 2rem;
     }
 }
+/* filters */
+.each-filter h2{
+    font-weight: 600;
+}
+
 @media screen and (max-width: 1000px) {
     .container__items{
         width: 90%;

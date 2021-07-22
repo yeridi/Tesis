@@ -1,0 +1,10 @@
+@import '../stylesGeneral/general.scss';
+.filter-type{
+    color: $text-color;
+    padding: 1rem;
+    select{
+        width: 80%;
+        padding:3px;
+        margin: 15px 10px;
+    }
+}
