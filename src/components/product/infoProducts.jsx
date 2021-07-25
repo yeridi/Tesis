@@ -18,7 +18,7 @@ const Products = ({title,calories,image}) => {
             <div className="card-text">
                 <span className="date">4 days ago</span>
                 <h2>{title}</h2>
-                <p className="product-info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis facere assumenda quia earum. Explicabo, iste.</p>
+                {/* <p className="product-info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis facere assumenda quia earum. Explicabo, iste.</p> */}
                 <span>Price</span>
                 <div className="price-card">
                     <p className="price-before">$/.200.00</p>

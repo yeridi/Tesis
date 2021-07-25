@@ -6,20 +6,27 @@ import Loader from '../components/loader/Loader'
 import Search from '../components/search/Searh'
 import Footer from '../components/footer/Footer'
 import Selected from '../components/filters/Selected'
+/* pagination */
+import Pagination from '../components/pagination/Pagination'
 
 /* error component */
 import NoResults from '../components/Errors/NoResults'
 /* styles */
-
 import './styles/product.scss'
 
+
 const Product =() =>{
+
     const APP_ID = '659c02d4';
+
     const APP_KEY = '0df9fcf9f827f56c4e5f94f6ba100781';
 
     const [info, setInfo] = useState([]);
     const [query, setQuery] = useState("chicken");
     const [load, setLoad] = useState(true);
+
+    /* pagination state */
+    
 
     /* for the function of search */
 
@@ -54,11 +61,15 @@ const Product =() =>{
         console.log(e.target.value)
     }
 
-
+    /* loader */
 
     if(load){
         return <Loader/>
     }
+
+    /* paginations */
+
+
     return(
         <>
             {/* Header */}
@@ -104,7 +115,6 @@ const Product =() =>{
                                 ))
                             )
                         } 
-                        
                     </div>
                 </div>
             </div>
