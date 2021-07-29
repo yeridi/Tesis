@@ -8,6 +8,7 @@ import Product from '../../pages/products'
 import Error from '../../pages/Error'
 import Loader from '../loader/Loader' /* is not necesary */
 import Business from '../../pages/Business'
+import productInformation from '../../pages/productInformation'
 
 /* darkmode */
 import { Toggle } from '../toggle/Toggle'
@@ -29,6 +30,7 @@ const App = () => {
                     <Route exact path="/product" component={Product}></Route>
                     <Route exact path="/load" component={Loader}></Route>
                     <Route exact path="/business" component={Business}></Route>
+                    <Route exact path="/product/information" component={productInformation}></Route>
                     <Route component={Error}></Route>
                 </Switch>
             </BrowserRouter>

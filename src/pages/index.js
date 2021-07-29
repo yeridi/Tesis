@@ -4,20 +4,11 @@ import './styles/home.scss'
 /* components */
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
-/* dark mode */
-import { Toggle } from '../components/toggle/Toggle'
-import { useDarkMore } from '../components/stylesGeneral/useDarkMode'
-import { GlobalStyle, lightTheme, darkTheme } from '../components/stylesGeneral/globalStyles'
-import { ThemeProvider } from 'styled-components'
-
 
 const Index = () => {
     return (
         <>
             <Header />
-            <GlobalStyle />
-
-            {/* <Toggle theme={theme} toggleTheme={toggleTheme} /> */}
 
             <section className="section__home">
                 <div className="text__section wow animate__animated animate__fadeIn">

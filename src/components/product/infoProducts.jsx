@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 /* style */
 import './infoProducts.scss'
 
@@ -27,7 +27,7 @@ const Products = ({title,calories,image}) => {
             </div>
             <div className="card-stats">
                 <div className="stat">
-                    <div className="type"><a href="">Mas Informacion</a></div>
+                    <div className="type"><Link to="/product/information">Mas Informacion</Link></div>
                 </div>
             </div>
         </div>
