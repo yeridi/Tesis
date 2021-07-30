@@ -1,0 +1,17 @@
+.container-swiper-card{
+    width: 80%;
+    margin: 5rem auto;
+}
+.swiper-slide{
+    background: none;
+}
+.swiper-button-prev::after{
+    color: #292cff;
+    font-weight: bolder;
+    margin-right: 1rem;
+}
+.swiper-button-next::after{
+    color: #292cff;
+    font-weight: bolder;
+    margin-left: 1rem;
+}

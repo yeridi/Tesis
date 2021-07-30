@@ -43,7 +43,6 @@ const Product =() =>{
             const response = await fetch(exampleReq);
             const data = await response.json();
             setInfo(data.hits);
-            console.log(data.hits)
             setLoad(false)
         }catch (error){
             /* more code */

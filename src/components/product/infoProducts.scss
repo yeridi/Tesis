@@ -2,7 +2,7 @@
 .card {
     width: 80%;
     display: grid;
-    grid-template-rows: 210px auto 50px;
+    grid-template-rows: 250px 200px 50px;
     grid-template-areas: "image" "text" "stats";
     border-radius: 18px;
     background: white;
@@ -81,7 +81,7 @@
         img{
             float: left;
             width: 20%;
-            height: 210px;
+            height: 250px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
         }
@@ -116,4 +116,11 @@
     100%{
         left: -400%;
     }
+}
+
+@media screen and (max-width:1000px){
+    .card{
+        width: 100%;
+    }
+
 }

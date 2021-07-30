@@ -7,13 +7,27 @@ export const GlobalStyle = createGlobalStyle`
         color:${({ theme }) => theme.text};
         transition:all .5s linear;
     }
+    .card, .bussines-card{
+        transition:all.5s linear;
+        background:${({ theme }) => theme.card};
+    }
+    .bussines-card, .bussines-about{
+        transition:all.5s linear;
+        color:${({ theme }) => theme.text};
+    }
+    .search__form .search__bar{
+        background:${({ theme }) => theme.card};
+        color:${({ theme }) => theme.text};
+    }
 `;
 
 export const lightTheme = {
     body: '#fff',
     text: '#47525E',
+    card: '#fff',
 }
 export const darkTheme = {
-    body: '#202031',
-    text:'#fff'
+    body: '#242435',
+    text:'#fff',
+    card: '#2c2c41'
 }
