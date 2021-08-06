@@ -1,8 +1,8 @@
 import React from 'react'
 /* style */
-import './cardbusiness.scss';
+import './cardCompanies.scss';
 
-const cardBusiness = ({ title, img }) => {
+const cardCompanies = ({ title, img }) => {
 
     const handleOpenModal = () => {
         const modal_container = document.getElementById('modal_container');
@@ -105,4 +105,4 @@ const cardBusiness = ({ title, img }) => {
         </>
     )
 }
-export default cardBusiness;
+export default cardCompanies;

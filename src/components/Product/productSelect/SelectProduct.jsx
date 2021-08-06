@@ -2,7 +2,7 @@ import React from 'react'
 /* styles */
 import './selectproduct.scss';
 
-const ProductInfo = () =>{
+const SelectProduct = () =>{
     return(
         <div className="card-wrapper">
             <div className="card-information">
@@ -89,4 +89,4 @@ const ProductInfo = () =>{
         </div>
     )
 }
-export default ProductInfo;
+export default SelectProduct;

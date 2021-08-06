@@ -1,14 +1,14 @@
 import React, { useEffect, useState }from 'react'
 /* components */
-import Products from '../components/product/infoProducts'
 import Header from '../components/header/Header'
 import Loader from '../components/loader/Loader'
 import Search from '../components/search/Searh'
 import Footer from '../components/footer/Footer'
-import Selected from '../components/filters/Selected'
+import ProductCard from '../components/Product/productCard/ProductCard'
 /* pagination */
 import Pagination from '../components/pagination/Pagination'
-
+/* filter */
+import Selected from '../components/Product/filters/Selected'
 /* error component */
 import NoResults from '../components/Errors/NoResults'
 /* styles */
@@ -105,7 +105,7 @@ const Product =() =>{
                             <NoResults/>
                             ) : (
                                 info.map(infos =>(
-                                    <Products 
+                                    <ProductCard 
                                         key={infos.recipe.label}
                                         title={infos.recipe.label} 
                                         calories={infos.recipe.calories} 

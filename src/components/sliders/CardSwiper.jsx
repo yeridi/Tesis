@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 /* components */
-import Products from '../product/infoProducts'
+import ProductCard from '../Product/productCard/ProductCard';
 
 /* swiper dependencies*/
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -62,7 +62,7 @@ const CardSwiper = () => {
             >
                 {info.map(infos =>(
                     <SwiperSlide>
-                        <Products
+                        <ProductCard
                             title={infos.recipe.label}
                             image={infos.recipe.image}
                         />

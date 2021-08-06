@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 /* style */
-import './infoProducts.scss'
+import './ProductCard.scss'
 
-const Products = ({title,calories,image}) => {
+const ProductCard = ({title,calories,image}) => {
     return(
         <div class="card wow animate__animated animate__fadeIn animate__slow">
             <div className="card-image">
@@ -33,4 +33,4 @@ const Products = ({title,calories,image}) => {
         </div>
     )
 }
-export default Products;
+export default ProductCard;

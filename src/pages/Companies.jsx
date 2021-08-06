@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react'
 import './styles/business.scss'
 /* componets */
 import Header from '../components/header/Header'
-import CardBusiness from '../components/card-business/cardBusiness'
+import CardCompanies from '../components/Companies/card-companies/cardCompanies'
 import Loader from '../components/loader/Loader'
 import Search from '../components/search/Searh'
 import Footer from '../components/footer/Footer'
 
 
-const Business = () => {
+const Companies = () => {
     const APP_ID = '659c02d4';
     const APP_KEY = '0df9fcf9f827f56c4e5f94f6ba100781';
 
@@ -53,7 +53,7 @@ const Business = () => {
                 <div class="each-worker">
                     {info.length ? (
                         info.map((infos) => (
-                            <CardBusiness
+                            <CardCompanies
                                 key={infos.recipe.label}
                                 title={infos.recipe.label}
                                 img={infos.recipe.image}
@@ -80,4 +80,4 @@ const Business = () => {
         </>
     )
 }
-export default Business;
+export default Companies;
