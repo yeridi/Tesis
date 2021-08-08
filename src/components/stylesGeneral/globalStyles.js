@@ -19,15 +19,26 @@ export const GlobalStyle = createGlobalStyle`
         background:${({ theme }) => theme.card};
         color:${({ theme }) => theme.text};
     }
+    
+
+
+    .slidebar{
+        background:${({ theme }) => theme.slidebar};
+    }
+    .message{
+        background:${({ theme }) => theme.slidebar};
+    }
 `;
 
 export const lightTheme = {
     body: '#fff',
     text: '#47525E',
     card: '#fff',
+    slidebar: '#fff',
 }
 export const darkTheme = {
     body: '#242435',
     text:'#fff',
-    card: '#2c2c41'
+    card: '#2c2c41',
+    slidebar:'#2c2c41',
 }

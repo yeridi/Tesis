@@ -23,26 +23,6 @@ const cardCompanies = ({ title, img }) => {
 
     return (
         <>
-            {/* <div class="card-worker wow animate__animated animate__fadeIn animate__slow">
-                <div class="header-card-worker">
-                    <img src={img} alt="" id="image-business"/>
-                    <h4 id="title-business">{title}</h4>
-                    <div class="header-more">
-                        <button id="open" onClick={handleOpenModal}><i class="far fa-eye"></i></button>
-                    </div>
-                </div>
-                <div class="information-worker">
-                    <h4>Description</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui culpa, excepturi quo dolorem quasi laudantium veniam repellendus quaerat quod dicta?</p>
-                </div>
-                <div class="social-media">
-                    <i class="far fa-envelope"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-whatsapp"></i>
-                    <i class="far fa-envelope"></i>
-                </div>
-            </div> */}
-
             <div class="bussines-card">
                 <div class="business-head">
                     <div class="bussines-head-image">

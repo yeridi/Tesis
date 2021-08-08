@@ -1,0 +1,102 @@
+.feed{
+    flex: 0.75;
+    margin: 0 20px;
+}
+.feed__inputContainer{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.feed__input{
+    border: 1px solid lightgray;
+    padding: 10px;
+    color: gray;
+    border-radius: 30px;
+    display: flex;
+}
+.feed__input > form{
+    display: flex;
+    width: 100%;
+}
+
+.feed__input > form > input{
+    border: none;
+    outline: none;
+    flex: 1;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.feed__input > form > button {
+    display: none;
+}
+.feed__options{
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+}
+
+
+
+/* modal */
+
+
+.modal-container {
+    .modal{
+        width: 60%;
+        height: 80vh;
+        background: #ffffff;
+        position: relative;
+        .container-info-modal{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+
+            .modal__message{
+                color: gray;
+                font-size: 13px;
+                padding-bottom: 1rem;
+            }
+            form{
+                width: 100%;
+                textarea{
+                    display: block;
+                    margin: 1rem auto;
+                    outline: none;
+                    border: solid 1px rgb(197, 197, 197);
+                    padding: 10px;
+                    height: 40vh;
+                    width: 100% !important;
+                }
+            }
+            
+        }
+        .modal__header{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            height: 80px;
+        }
+    }
+    button {
+        width: 20%;
+        padding: .6rem .1rem;
+        border: none;
+        background: #5d60ff;
+        color: #fff;
+        border-radius: 1rem;
+        cursor: pointer;
+        display: block;
+        margin: 1rem auto;
+    }
+}
+@media screen and (max-width:1431px) {
+    .modal{
+        width: 80% !important;
+    }
+}
