@@ -38,6 +38,7 @@
 
 
 
+
 /* modal */
 
 
@@ -45,7 +46,6 @@
     .modal{
         width: 60%;
         height: 80vh;
-        background: #ffffff;
         position: relative;
         .container-info-modal{
             width: 100%;
@@ -95,6 +95,7 @@
         margin: 1rem auto;
     }
 }
+
 @media screen and (max-width:1431px) {
     .modal{
         width: 80% !important;

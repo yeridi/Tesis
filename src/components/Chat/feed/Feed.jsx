@@ -4,10 +4,13 @@ import './feed.scss'
 /* material ui icon */
 import ClearIcon from '@material-ui/icons/Clear';
 import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 
 /* components */
 import InputOptions from '../inputOptions/inputOptions'
 import Message from '../message/Message';
+import Comments from '../comments/Comments';
+
 
 function Feed() {
 
@@ -22,7 +25,9 @@ function Feed() {
         modal_container.classList.remove('show');
     }
 
-    /* form__chat */
+    /* comments show or hide */
+
+
 
     
 
@@ -30,7 +35,7 @@ function Feed() {
         <div className="feed">
             <div className="feed__inputContainer">
 
-                {/* modal-form */}
+                
                 <button id="open" onClick={handleOpenModal}>More Info</button>
 
                 <div class="modal-container" id="modal_container">
@@ -44,7 +49,7 @@ function Feed() {
                             <form>
                                 <textarea value={input} onChange={e => setInput(e.target.value)}></textarea>
                                 <div className="feed__options">
-                                    {/* input options */}
+                                    
                                     <InputOptions Icon={InsertPhotoIcon} title="Agregar Imagen" />
                                 </div>
                             </form>
@@ -56,8 +61,9 @@ function Feed() {
 
             {/* commets */}
 
-            <Message/>
-
+            <Message message="Ver Comentarios" Icon={QuestionAnswerIcon}/>
+            <Message message="Ver Comentarios" Icon={QuestionAnswerIcon}/>
+            <Message message="Ver Comentarios" Icon={QuestionAnswerIcon}/>
 
         </div>
     )

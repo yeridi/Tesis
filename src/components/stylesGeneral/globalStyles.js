@@ -9,36 +9,49 @@ export const GlobalStyle = createGlobalStyle`
     }
     .card, .bussines-card{
         transition:all.5s linear;
-        background:${({ theme }) => theme.card};
+        background:${({ theme }) => theme.general};
     }
     .bussines-card, .bussines-about{
         transition:all.5s linear;
         color:${({ theme }) => theme.text};
     }
     .search__form .search__bar{
-        background:${({ theme }) => theme.card};
+        background:${({ theme }) => theme.general};
         color:${({ theme }) => theme.text};
     }
     
-
-
     .slidebar{
-        background:${({ theme }) => theme.slidebar};
+        background:${({ theme }) => theme.general};
     }
+
+
     .message{
-        background:${({ theme }) => theme.slidebar};
+        background:${({ theme }) => theme.general};
+    }
+    .modal{
+        background:${({ theme }) => theme.general} !important;
+    }
+    textarea{
+        background:${({ theme }) => theme.body} !important;
+        color:${({ theme }) => theme.text};
+    }
+    .comments{
+        background:${({ theme }) => theme.general};
+    }
+
+    
+    #check:checked ~ .comments{
+        right: 0;
     }
 `;
 
 export const lightTheme = {
     body: '#fff',
     text: '#47525E',
-    card: '#fff',
-    slidebar: '#fff',
+    general: '#fff',
 }
 export const darkTheme = {
     body: '#242435',
     text:'#fff',
-    card: '#2c2c41',
-    slidebar:'#2c2c41',
+    general: '#2c2c41',
 }
