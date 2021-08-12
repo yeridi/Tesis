@@ -3,8 +3,10 @@ nav{
   position: fixed;
   z-index: 1000;
   width: 100%;
-  background: $color-primary;
+  background: #fff;
   top: 0;
+  
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.027) !important;
 }
 nav .wrapper{
   position: relative;
@@ -18,7 +20,9 @@ nav .wrapper{
   justify-content: space-between;
 }
 .wrapper .logo a{
-  color: $text-second;
+  /* color: $text-second; */
+  
+  color: $color-third !important;
   font-size: 30px;
   font-weight: 600;
   text-decoration: none;
@@ -30,7 +34,9 @@ nav .wrapper{
   list-style: none;
 }
 .nav-links li a{
-  color: $text-second;
+  /* color: $text-second; */
+  
+  color: $color-third !important;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -39,14 +45,15 @@ nav .wrapper{
   transition: all 0.3s ease;
 }
 .nav-links li a:hover{
-  background: #3A3B3C;
+  background: #727272;
+  color: #fff !important;
 }
 .nav-links .mobile-item{
   display: none;
 }
 .nav-links .drop-menu{
   position: absolute;
-  background: #242526;
+  background: #727272;
   width: 180px;
   line-height: 45px;
   top: 85px;

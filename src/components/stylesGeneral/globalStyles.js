@@ -4,17 +4,29 @@ import '../stylesGeneral/general.scss';
 export const GlobalStyle = createGlobalStyle`
     body{
         background:${({ theme }) => theme.body};
-        color:${({ theme }) => theme.text};
+        color:${({ theme }) => theme.text} !important;
         transition:all .5s linear;
     }
-    .card, .bussines-card{
+
+    /* for the cards */
+
+
+    .card, .bussines-card, .community{
         transition:all.5s linear;
         background:${({ theme }) => theme.general};
     }
+
+
+
     .bussines-card, .bussines-about{
         transition:all.5s linear;
         color:${({ theme }) => theme.text};
     }
+
+    .text__section__information{
+        color:${({ theme }) => theme.text} !important;
+    }
+
     .search__form .search__bar{
         background:${({ theme }) => theme.general};
         color:${({ theme }) => theme.text};
@@ -37,11 +49,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     .comments{
         background:${({ theme }) => theme.general};
-    }
-
-    
-    #check:checked ~ .comments{
-        right: 0;
     }
 `;
 

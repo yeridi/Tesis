@@ -13,7 +13,7 @@ const Header =()=>{
                     <input type="radio" name="slider" id="menu-btn" />
                     <input type="radio" name="slider" id="close-btn" />
                     <ul className="nav-links">
-                        <label for="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
+                        <label htmlFor="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/product">Productos</Link></li>
                         {/* <li>

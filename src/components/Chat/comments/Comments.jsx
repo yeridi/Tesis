@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Message from '../message/Message'
 
 import './comments.scss'

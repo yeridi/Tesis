@@ -59,7 +59,7 @@ function Feed() {
                 </div>
             </div>
 
-            {/* commets */}
+            {/* comentarios */}
 
             <Message message="Ver Comentarios" Icon={QuestionAnswerIcon}/>
             <Message message="Ver Comentarios" Icon={QuestionAnswerIcon}/>
