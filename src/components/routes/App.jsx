@@ -10,6 +10,7 @@ import Loader from '../loader/Loader' /* is not necesary */
 import Companies from '../../pages/Companies'
 import productInfo from '../../pages/productInfo'
 import chat from '../../pages/chat'
+import Login from '../../components/login/Login'
 
 /* darkmode */
 import { Toggle } from '../toggle/Toggle'
@@ -33,6 +34,7 @@ const App = () => {
                     <Route exact path="/business" component={Companies}></Route>
                     <Route exact path="/product/information" component={productInfo}></Route>
                     <Route exact path="/chat" component={chat}></Route>
+                    <Route exact path="/login" component={Login}></Route>
                     <Route component={Error}></Route>
                 </Switch>
             </BrowserRouter>

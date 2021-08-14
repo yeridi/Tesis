@@ -10,14 +10,23 @@ import "swiper/components/pagination/pagination.min.css"
 
 
 // import Swiper core and required modules
-import SwiperCore, { Pagination } from 'swiper/core';
+import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 // install Swiper modules
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination, Autoplay]);
 
 
 function SwiperHome() {
     return (
-        <Swiper direction={'vertical'} pagination={{"clickable": true}} className="mySwiper">
+        <Swiper 
+            direction={'vertical'} 
+            pagination={{"clickable": true}} 
+            className="mySwiper"
+            loop={true}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false
+            }}
+        >
             <SwiperSlide>
                 <h3>Publicar productos</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti totam obcaecati officiis! Assumenda, voluptatum.</p>

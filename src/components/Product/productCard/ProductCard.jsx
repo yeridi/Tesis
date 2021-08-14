@@ -19,9 +19,8 @@ const ProductCard = ({title,calories,image}) => {
                 <span className="date">4 days ago</span>
                 <h2>{title}</h2>
                 {/* <p className="product-info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis facere assumenda quia earum. Explicabo, iste.</p> */}
-                <span>Price</span>
+                <span>Precio</span>
                 <div className="price-card">
-                    <p className="price-before">$/.200.00</p>
                     <p>$/.150.00</p>
                 </div>
             </div>

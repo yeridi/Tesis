@@ -10,6 +10,9 @@ import SwiperHome from '../components/sliders/SwiperHome'
 import workingteam from '../images/workingteam.png'
 import community from '../images/community.svg'
 
+/* links */
+import { Link } from 'react-router-dom'
+
 const Index = () => {
     return (
         <>
@@ -62,7 +65,7 @@ const Index = () => {
                     </div>
                     <div className="community__rightSection">
                         <h2>Unete a Nuestra Comunidad</h2>
-                        <button>Conocer Comunidad</button>
+                        <Link to="/login" className="link__login">Conocer Comunidad</Link>
                     </div>
                 </div>
 
@@ -89,10 +92,21 @@ const Index = () => {
             </section>
 
 
-            <section className="wow animate__animated animate__fadeIn animate__slow animate__delay-1s">
-                <div className="container__how">
-                    <h1>¿CÓMO PUEDO VENDER MI PRODUCTO AQUI?</h1>
-                    <a href="">Sigue la Guia</a>
+            <section className="wow how animate__animated animate__fadeIn animate__slow animate__delay-1s">
+                <h1 className="how__title">PREGUNTAS FRECUENTES</h1>
+                <div className="container__how__all">
+                    <div className="container__how">
+                        <h1>¿CÓMO PUEDO VENDER MI PRODUCTO AQUI?</h1>
+                        <a href="">Sigue la Guia</a>
+                    </div>
+                    <div className="container__how">
+                        <a href="">Servicios</a>
+                        <h1>¿CÓMO CONTRATO ALGUN SERVICIO?</h1>
+                    </div>
+                    <div className="container__how">
+                        <h1>SOBRE LOS PRODUCTOS Y LOS SERVICIOS DE LA APP</h1>
+                        <a href="">Sigue la Guia</a>
+                    </div>
                 </div>
             </section>
             <Footer />
