@@ -134,6 +134,11 @@ nav .wrapper{
   right: 30px;
   top: 10px;
 }
+.nav-links li .login__button{
+  background-color: $color-primary;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.342);
+  color: #fff !important;
+}
 
 @media screen and (max-width: 970px) {
   .wrapper .btn{
