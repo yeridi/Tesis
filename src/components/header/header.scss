@@ -3,7 +3,7 @@ nav{
   position: fixed;
   z-index: 1000;
   width: 100%;
-  background: #fff;
+  background: rgb(255, 255, 255);
   top: 0;
   
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.027) !important;
@@ -136,8 +136,13 @@ nav .wrapper{
 }
 .nav-links li .login__button{
   background-color: $color-primary;
-  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.342);
+  box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.178);
   color: #fff !important;
+}
+
+.user__header{
+  cursor: pointer;
+  margin-top: 14px;
 }
 
 @media screen and (max-width: 970px) {

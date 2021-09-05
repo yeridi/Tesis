@@ -1,25 +1,11 @@
 import React from 'react'
 /* style */
 import './cardCompanies.scss';
+/* router-dom */
+
+import {Link} from 'react-router-dom'
 
 const cardCompanies = ({ title, img }) => {
-
-    const handleOpenModal = () => {
-        const modal_container = document.getElementById('modal_container');
-        modal_container.classList.add('show');
-
-        document.getElementById("result-name").innerHTML = title;
-        const newImage = document.getElementById("newimage");
-        newImage.src = img
-
-        /* document.getElementById("result-name").innerHTML = name; */
-
-
-    }
-    const handleCloseModal = () => {
-        const modal_container = document.getElementById('modal_container');
-        modal_container.classList.remove('show');
-    }
 
     return (
         <>
@@ -35,7 +21,7 @@ const cardCompanies = ({ title, img }) => {
                     <p>If you need something just call me, xd thats a joke </p>
                 </div>
                 <div class="bussines-buttons">
-                    <button id="open" onClick={handleOpenModal}>More Info</button>
+                    <Link to="/business/go">More Info</Link>
                 </div>
                 <div class="bussines-about">
                     <div class="each-about-staff">
@@ -53,33 +39,6 @@ const cardCompanies = ({ title, img }) => {
                         <h4>20</h4>
                         <p>Staff</p>
                     </div>
-                </div>
-            </div>
-
-
-
-
-
-            {/* modal */}
-            <div class="modal-container" id="modal_container">
-                <div class="modal">
-                    <div class="container-info-modal">
-                        <div className="info-modal-image">
-                            <img id="newimage" />
-                            <div className="information-bussines-image">
-                                <i className="fab fa-whatsapp"></i>
-                                <i className="fab fa-twitter"></i>
-                                <i className="fab fa-instagram"></i>
-                            </div>
-                            <div className="info-image-capa"></div>
-                        </div>
-                        <div class="modal-bussines">
-                            <h1 id="result-name"></h1>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero autem enim quibusdam quasi corporis alias, sapiente sit quos consequatur? Saepe culpa nam accusamus dolorem fugiat vitae eligendi, recusandae rem dolores facere asperiores quam, ea, ipsam nihil voluptates porro molestiae exercitationem doloribus minima possimus. Laudantium, vitae exercitationem.</p>
-                            <button id="close" onClick={handleCloseModal}>Cerrar</button>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </>

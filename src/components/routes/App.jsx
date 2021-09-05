@@ -11,6 +11,7 @@ import Companies from '../../pages/Companies'
 import productInfo from '../../pages/productInfo'
 import chat from '../../pages/chat'
 import Login from '../../components/login/Login'
+import CompyInfo from '../../pages/CompyInfo'
 
 /* darkmode */
 import { Toggle } from '../toggle/Toggle'
@@ -32,6 +33,7 @@ const App = () => {
                     <Route exact path="/product" component={Product}></Route>
                     <Route exact path="/load" component={Loader}></Route>
                     <Route exact path="/business" component={Companies}></Route>
+                    <Route exact path="/business/go" component={CompyInfo}></Route>
                     <Route exact path="/product/information" component={productInfo}></Route>
                     <Route exact path="/chat" component={chat}></Route>
                     <Route exact path="/login" component={Login}></Route>

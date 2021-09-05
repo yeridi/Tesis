@@ -1,11 +1,36 @@
 import React from 'react'
 /* styles */
 import './header.scss'
+import Avatar from '@material-ui/core/Avatar'
 /* router */
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+/* firebase */
+import { auth, provider } from '../../firebase'
+/* redux */
+import { useSelector, useDispatch } from 'react-redux'
+import { selectUserPhoto, setSignOutState } from '../../features/user/userSlice'
 
-const Header =()=>{
-    return(
+/* firebase */
+
+const Header = () => {
+
+    const history = new useHistory();
+    const dispatch = new useDispatch();
+
+    const user = useSelector(selectUserPhoto);
+
+    const handleAuth = ()=>{
+        if(user){
+            auth.signOut().then(()=>{
+                dispatch(setSignOutState())
+                history.push('/');
+            }).catch(err =>{
+                alert(err.message)
+            })
+        }
+    }
+
+    return (
         <>
             <nav>
                 <div className="wrapper">
@@ -28,52 +53,62 @@ const Header =()=>{
                             </ul>
                         </li> */}
                         <li><Link to="/business">Empresas</Link></li>
-                        <li>
-                            <a href="#" className="desktop-item">Mega Menu</a>
-                            <input type="checkbox" id="showMega"/>
-                            <label for="showMega" className="mobile-item">Mega Menu</label>
-                            <div className="mega-box">
-                                <div className="content">
-                                    <div className="row">
-                                        <img src="img.jpg" alt=""/> 
-                                    </div>
-                                <div className="row">
-                                    <header>Design Services</header>
-                                    <ul className="mega-links">
-                                        <li><a href="#">Graphics</a></li>
-                                        <li><a href="#">Vectors</a></li>
-                                        <li><a href="#">Business cards</a></li>
-                                        <li><a href="#">Custom logo</a></li>
-                                    </ul>
-                                </div>
-                                <div className="row">
-                                    <header>Email Services</header>
-                                    <ul className="mega-links">
-                                        <li><a href="#">Personal Email</a></li>
-                                        <li><a href="#">Business Email</a></li>
-                                        <li><a href="#">Mobile Email</a></li>
-                                        <li><a href="#">Web Marketing</a></li>
-                                    </ul>
-                                </div>
-                                <div className="row">
-                                    <header>Security services</header>
-                                    <ul className="mega-links">
-                                        <li><a href="#">Site Seal</a></li>
-                                        <li><a href="#">VPS Hosting</a></li>
-                                        <li><a href="#">Privacy Seal</a></li>
-                                        <li><a href="#">Website design</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
                         <li><Link to="/application">Movil</Link></li>
-                        <li><Link to="/login" className="login__button">Iniciar Sesion</Link></li>
+                        {
+                            !user ? (
+                                <>
+                                    <li><Link to="/login" className="login__button">Iniciar Sesion</Link></li>
+                                </>
+                            ) : (
+                                <>
+                                    <li>
+                                        <a href="#" className="desktop-item">Mega Menu</a>
+                                        <input type="checkbox" id="showMega" />
+                                        <label for="showMega" className="mobile-item">Mega Menu</label>
+                                        <div className="mega-box">
+                                            <div className="content">
+                                                <div className="row">
+                                                    <img src="img.jpg" alt="" />
+                                                </div>
+                                                <div className="row">
+                                                    <header>Design Services</header>
+                                                    <ul className="mega-links">
+                                                        <li><a href="#">Graphics</a></li>
+                                                        <li><a href="#">Vectors</a></li>
+                                                        <li><a href="#">Business cards</a></li>
+                                                        <li><a href="#">Custom logo</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div className="row">
+                                                    <header>Email Services</header>
+                                                    <ul className="mega-links">
+                                                        <li><a href="#">Personal Email</a></li>
+                                                        <li><a href="#">Business Email</a></li>
+                                                        <li><a href="#">Mobile Email</a></li>
+                                                        <li><a href="#">Web Marketing</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div className="row">
+                                                    <header>Security services</header>
+                                                    <ul className="mega-links">
+                                                        <li><a href="#">Site Seal</a></li>
+                                                        <li><a href="#">VPS Hosting</a></li>
+                                                        <li><a href="#">Privacy Seal</a></li>
+                                                        <li><a href="#">Website design</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <Avatar src={user}  className="user__header" onClick={handleAuth}/>
+                                </>
+                            )
+                        }
                     </ul>
                     <label for="menu-btn" className="btn menu-btn"><i className="fas fa-bars"></i></label>
                 </div>
             </nav>
-        </> 
-    )   
+        </>
+    )
 }
 export default Header;
