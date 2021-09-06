@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 /* components */
 import ProductCard from '../Product/productCard/ProductCard';
+import Loader from '../loader/Loader'
 
 /* swiper dependencies*/
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,6 +23,7 @@ const CardSwiper = () => {
 
     const [info, setInfo] = useState([]);
     const [query,setQuery] = useState('orange');
+    const [loader, setLoader] = useState(true);
 
     const APP_ID =  '659c02d4';
     const APP_KEY = '0df9fcf9f827f56c4e5f94f6ba100781';
@@ -37,6 +39,11 @@ const CardSwiper = () => {
         const result =await  fetch(exampleReq)
         const data = await result.json();
         setInfo(data.hits)
+        setLoader(false)
+    }
+
+    if (loader){
+        return <Loader/>
     }
 
     return (

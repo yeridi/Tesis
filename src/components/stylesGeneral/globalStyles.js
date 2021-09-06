@@ -50,6 +50,14 @@ export const GlobalStyle = createGlobalStyle`
     .comments{
         background:${({ theme }) => theme.general};
     }
+
+
+    /* header */
+
+    nav{
+        background:${({ theme }) => theme.body} !important;
+        color:color:${({ theme }) => theme.text} !important;
+    }
 `;
 
 export const lightTheme = {

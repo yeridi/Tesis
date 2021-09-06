@@ -5,7 +5,7 @@ nav{
   width: 100%;
   background: rgb(255, 255, 255);
   top: 0;
-  
+  transition: all 800ms;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.027) !important;
 }
 nav .wrapper{
@@ -22,8 +22,8 @@ nav .wrapper{
 .wrapper .logo a{
   /* color: $text-second; */
   
-  color: $color-third !important;
-  font-size: 30px;
+  color: $color-third;
+  font-size: 22px;
   font-weight: 600;
   text-decoration: none;
 }
@@ -38,11 +38,14 @@ nav .wrapper{
   
   color: $color-third !important;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   padding: 9px 15px;
   border-radius: 5px;
   transition: all 0.3s ease;
+}
+.link__icon{
+  font-size: 30px !important;
 }
 .nav-links li a:hover{
   background: #727272;
