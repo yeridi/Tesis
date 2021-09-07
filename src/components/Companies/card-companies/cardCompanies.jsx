@@ -9,7 +9,7 @@ const cardCompanies = ({ title, img }) => {
 
     return (
         <>
-            <div class="bussines-card">
+            <div class="bussines-card wow animate__animated animate__fadeIn animate__slow">
                 <div class="business-head">
                     <div class="bussines-head-image">
                         <img src={img}/>

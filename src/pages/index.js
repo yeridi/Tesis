@@ -31,7 +31,7 @@ const Index = () => {
                 </div>
             </section>
 
-            <section className="about__us wow animate__animated animate__fadeIn">
+            <section className="about__us wow animate__animated animate__fadeInLeft animate__delay-1s">
                 <div className="about__us__container">
                     <div className="about__us__title">
                         <h1>UN SERVICIO GRATUITO Y FACIL DE USAR</h1>

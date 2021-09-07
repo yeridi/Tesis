@@ -10,11 +10,6 @@ import { auth, provider } from '../../firebase'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUserPhoto, setSignOutState } from '../../features/user/userSlice'
 
-/* icons */
-import HomeIcon from '@material-ui/icons/Home';
-import SpaceBarIcon from '@material-ui/icons/SpaceBar';
-import BusinessIcon from '@material-ui/icons/Business';
-import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 
 const Header = () => {
 
@@ -23,12 +18,12 @@ const Header = () => {
 
     const user = useSelector(selectUserPhoto);
 
-    const handleAuth = ()=>{
-        if(user){
-            auth.signOut().then(()=>{
+    const handleAuth = () => {
+        if (user) {
+            auth.signOut().then(() => {
                 dispatch(setSignOutState())
                 history.push('/');
-            }).catch(err =>{
+            }).catch(err => {
                 alert(err.message)
             })
         }
@@ -43,8 +38,8 @@ const Header = () => {
                     <input type="radio" name="slider" id="close-btn" />
                     <ul className="nav-links">
                         <label htmlFor="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
-                        <li><Link to="/">Home <HomeIcon className="link__icon"/></Link></li>
-                        <li><Link to="/product">Productos <SpaceBarIcon className="link__icon"/></Link></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/product">Productos</Link></li>
                         {/* <li>
                             <a href="#" className="desktop-item">Dropdown Menu</a>
                             <input type="checkbox" id="showDrop" />
@@ -56,8 +51,8 @@ const Header = () => {
                                 <li><a href="#">Drop menu 4</a></li>
                             </ul>
                         </li> */}
-                        <li><Link to="/business">Empresas <BusinessIcon className="link__icon"/></Link></li>
-                        <li><Link to="/application">Movil <PhoneAndroidIcon className="link__icon"/></Link></li>
+                        <li><Link to="/business">Empresas</Link></li>
+                        <li><Link to="/application">Movil</Link></li>
                         {
                             !user ? (
                                 <>

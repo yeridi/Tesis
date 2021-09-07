@@ -49,8 +49,8 @@
 .bussines-buttons{
     padding: .5rem;
 }
-.bussines-buttons button{
-    display: block;
+.bussines-buttons a{
+    text-decoration: none;
     cursor: pointer;
     margin: 10px auto 30px;
     padding: .5rem 1.5rem;

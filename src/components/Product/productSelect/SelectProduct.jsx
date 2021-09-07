@@ -28,7 +28,7 @@ const SelectProduct = () => {
         <div className="card-wrapper">
             <div className="card-information">
                 {/* section-images */}
-                <div className="product-img">
+                <div className="product-img wow animate__animated animate__fadeInLeft">
                     <div className="img-display">
                         <div className="img-showcase">
                             <img src="https://ae01.alicdn.com/kf/He5ed157da2c249d3ba0c8e1f499994f6j/Peluches-adorables-de-Totoro-de-30-70cm-para-ni-os-mu-ecos-de-Personaje-de-Anime.jpg_q50.jpg"
@@ -69,7 +69,7 @@ const SelectProduct = () => {
                     </div>
                 </div>
                 {/* section-information */}
-                <div class="product-content">
+                <div class="product-content wow animate__animated animate__fadeInRight">
                     <div className="product-content-all">
 
                         <h2 className="product-title">Mi Vecino Totoro la nueva</h2>

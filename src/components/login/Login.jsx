@@ -5,7 +5,7 @@ import { auth, provider } from '../../firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 
-import { setUserLoginDetails, selectUserName, selectUserPhoto } from '../../features/user/userSlice'
+import { setUserLoginDetails, selectUserName } from '../../features/user/userSlice'
 
 /* style */
 import './login.scss'

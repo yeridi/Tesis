@@ -1,4 +1,6 @@
 import React from 'react'
+
+import styled from 'styled-components'
 /* components */
 import SelectProduct from '../components/Product/productSelect/SelectProduct'
 import Header from '../components/header/Header'
@@ -10,9 +12,17 @@ const productInformation = () =>{
         <>
             <Header/>
             <SelectProduct/>
+            <ContainerProduct>
+                <h2>Productos Recomendados</h2>
+            </ContainerProduct>
             <CardSwiper/> 
             <Footer/>
         </>
     )
 }
+const ContainerProduct = styled.div`
+    text-align:center;
+`
+
+
 export default productInformation
