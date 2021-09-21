@@ -1,51 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
+import { useHistory } from 'react-router';
 import { auth, provider } from '../../firebase'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router'
-
-import { setUserLoginDetails, selectUserName } from '../../features/user/userSlice'
 
 /* style */
 import './login.scss'
 
 function Login() {
 
-    const dispatch = useDispatch()
-    const history = useHistory()
+    const history = useHistory();
 
-    const userName = useSelector(selectUserName)
-
-    useEffect(()=>{
-        auth.onAuthStateChanged(async (user) => {
-            if(user){
-                setUser(user)
-                history.push('/')
-            }
-        })   
-    },[userName])
-
-    const handleAuth = ()=>{
-        if(!userName){
-            auth
-            .signInWithPopup(provider)
-            .then((result)=>{
-                setUser(result.user)
-            })
-            .catch((error)=>{
-                alert(error.message)
-            })
-        }
-    }
-
-    const setUser = (user) =>{
-        dispatch(setUserLoginDetails({
-            name: user.displayName,
-            email: user.email,
-            photo: user.photoURL,
-        }))
-    }
+    const handleAuth = () => {
+        auth.signInWithPopup(provider).catch((error)=> alert(error.message))
+        history.push('/selectuser')
+    };
     return (
 
         <div class="login">

@@ -1,0 +1,109 @@
+@import "../stylesGeneral/mixinButtons.scss";
+.user__all{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.container__user{
+    margin: 2rem auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    img{
+        width: calc(1rem + 20vw);
+        height: 400px;
+    }
+    .option__user{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 50%;
+        padding: 2rem;
+        
+        .user__button{
+            @include second-button;
+            width: 80% !important;
+            margin: 1rem auto !important;
+        }
+        .user__selectButton{
+            @include third-button;
+            width: 80% !important;
+            margin: 0 !important;
+        }
+        .alone{
+            transition: all 700ms;
+            &:hover{
+                background-color: rgba(61, 61, 61, 0.384);
+            }
+        }
+        .company{
+            transition: all 700ms;
+            &:hover{
+                background-color: rgba(61, 61, 61, 0.384);
+            }
+        }
+    }
+    .select__user{
+        width: 50%;
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        width: 1000px;
+        border-radius: 50%;
+        height: 1000px;
+        right: -40%;
+        z-index: -1;
+        bottom: -70%;
+        background-color: rgba(94, 94, 94, 0.521);
+    }
+    .user__sendButton{
+        @include special-button;
+        display: block;
+        margin: auto !important;
+    }
+}
+
+.title__user{
+    text-align: center;
+    margin-top: 3rem;
+    text-transform: uppercase;
+}
+
+@media screen and(max-width:900px){
+    .user__all{
+        height: 160vh;
+    }
+    .container__user{
+        flex-direction: column-reverse;
+        .option__user{
+            width: 100%;
+            img {
+                width: 80%;
+            }
+        }
+        .select__user{
+            width: 90%;
+        }
+        .rol__image__detail{
+            width: 90%;
+        }
+    }
+}
+@media screen and(max-width:600px){
+    .option__user{
+        flex-direction: column-reverse;
+    }
+    .user__all{
+        height: 240vh;
+    }
+    .container__user{
+        &::before{
+            top: 50%;
+            right: 50%;
+        }
+    }
+}
