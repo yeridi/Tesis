@@ -5,7 +5,7 @@ import Avatar from '@material-ui/core/Avatar'
 /* router */
 import { Link, useHistory } from 'react-router-dom'
 /* firebase */
-import { auth, provider } from '../../firebase'
+import { auth } from '../../firebase'
 /* redux */
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUserPhoto, setSignOutState } from '../../features/user/userSlice'
@@ -61,19 +61,19 @@ const Header = () => {
                             ) : (
                                 <>
                                     <li>
-                                        <a href="#" className="desktop-item">Mega Menu</a>
+                                        <a href="#" className="desktop-item">Opciones</a>
                                         <input type="checkbox" id="showMega" />
-                                        <label for="showMega" className="mobile-item">Mega Menu</label>
+                                        <label for="showMega" className="mobile-item">Optiones</label>
                                         <div className="mega-box">
                                             <div className="content">
                                                 <div className="row">
                                                     <img src="img.jpg" alt="" />
                                                 </div>
                                                 <div className="row">
-                                                    <header>Design Services</header>
+                                                    <header>Productos</header>
                                                     <ul className="mega-links">
-                                                        <li><a href="#">Graphics</a></li>
-                                                        <li><a href="#">Vectors</a></li>
+                                                        <li><a href="#">Mis productos</a></li>
+                                                        <li><a href="/producto/nuevo">Subir producto</a></li>
                                                         <li><a href="#">Business cards</a></li>
                                                         <li><a href="#">Custom logo</a></li>
                                                     </ul>
@@ -99,7 +99,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                     </li>
-                                    <Avatar src={user}  className="user__header" onClick={handleAuth}/>
+                                    <Avatar src={user} className="user__header" onClick={handleAuth} />
                                 </>
                             )
                         }

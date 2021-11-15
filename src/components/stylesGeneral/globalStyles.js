@@ -46,9 +46,17 @@ export const GlobalStyle = createGlobalStyle`
     textarea{
         background:${({ theme }) => theme.body} !important;
         color:${({ theme }) => theme.text};
+        /* border:none !Important; */
     }
     .comments{
         background:${({ theme }) => theme.general};
+    }
+
+    .MuiInputBase-root{
+        color: ${({ theme }) => theme.text} !important;
+    }
+    .MuiFormLabel-root{
+        color: ${({ theme }) => theme.text} !important;
     }
 
 
@@ -56,7 +64,7 @@ export const GlobalStyle = createGlobalStyle`
 
     nav{
         background:${({ theme }) => theme.body} !important;
-        color:color:${({ theme }) => theme.text} !important;
+        color: color:${({ theme }) => theme.text} !important;
     }
 `;
 
@@ -64,9 +72,11 @@ export const lightTheme = {
     body: '#fff',
     text: '#47525E',
     general: '#fff',
+    border: '#5d60ff'
 }
 export const darkTheme = {
     body: '#242435',
-    text:'#fff',
+    text: '#fff',
     general: '#2c2c41',
+    border: 'rgb(119, 119, 119)'
 }

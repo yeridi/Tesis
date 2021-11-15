@@ -8,10 +8,11 @@ import './login.scss'
 
 function Login() {
 
+
     const history = useHistory();
 
     const handleAuth = () => {
-        auth.signInWithPopup(provider).catch((error)=> alert(error.message))
+        auth.signInWithPopup(provider).catch((error) => alert(error.message))
         history.push('/selectuser')
     };
     return (

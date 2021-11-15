@@ -13,6 +13,7 @@ import productInfo from '../../pages/productInfo'
 import chat from '../../pages/chat'
 import Login from '../../components/login/Login'
 import CompyInfo from '../../pages/CompyInfo'
+import RegisterProd from '../../pages/RegisterProd'
 
 /* darkmode */
 import { Toggle } from '../toggle/Toggle'
@@ -36,12 +37,12 @@ const App = () => {
     useEffect(() => {
         auth.onAuthStateChanged((authUser) => {
             if (authUser) {
-               dispatch(setUserLoginDetails({
-                   name:authUser.displayName,
-                   email:authUser.email,
-                   photo: authUser.photoURL,
-                   type:""
-               }));
+                dispatch(setUserLoginDetails({
+                    name: authUser.displayName,
+                    email: authUser.email,
+                    photo: authUser.photoURL,
+                    type: ""
+                }));
             } else {
                 //the user dont exist
             }
@@ -68,6 +69,7 @@ const App = () => {
                     <Route exact path="/chat" component={chat}></Route>
                     <Route exact path="/login" component={Login}></Route>
                     <Route exact path="/selectuser" component={UserType}></Route>
+                    <Route exact path="/producto/nuevo" component={RegisterProd}></Route>
                     <Route component={Error}></Route>
                 </Switch>
             </BrowserRouter>

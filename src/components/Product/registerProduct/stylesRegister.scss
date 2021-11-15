@@ -1,0 +1,16 @@
+@import "../../stylesGeneral/general.scss";
+@import "../../stylesGeneral/mixinButtons.scss";
+.sendButton {
+  @include third-button;
+}
+.everyting {
+  width: 100%;
+  height: 85vh;
+}
+
+@media screen and (max-width: 800px) {
+  .everyting {
+    height: auto !important;
+    margin: none !important;
+  }
+}
