@@ -8,7 +8,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { auth } from '../../firebase'
 /* redux */
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUserPhoto, setSignOutState } from '../../features/user/userSlice'
+import { selectUserPhoto, setSignOutState, selectUserType } from '../../features/user/userSlice'
 
 
 const Header = () => {
@@ -17,6 +17,9 @@ const Header = () => {
     const dispatch = new useDispatch();
 
     const user = useSelector(selectUserPhoto);
+    const type = useSelector(selectUserType);
+
+
 
     const handleAuth = () => {
         if (user) {
@@ -36,6 +39,7 @@ const Header = () => {
                     <div className="logo"><Link to="/">Go | Application</Link></div>
                     <input type="radio" name="slider" id="menu-btn" />
                     <input type="radio" name="slider" id="close-btn" />
+
                     <ul className="nav-links">
                         <label htmlFor="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
                         <li><Link to="/">Home</Link></li>
@@ -57,6 +61,7 @@ const Header = () => {
                             !user ? (
                                 <>
                                     <li><Link to="/login" className="login__button">Login</Link></li>
+
                                 </>
                             ) : (
                                 <>
@@ -78,22 +83,20 @@ const Header = () => {
                                                         <li><a href="#">Custom logo</a></li>
                                                     </ul>
                                                 </div>
+
                                                 <div className="row">
-                                                    <header>Email Services</header>
+                                                    <header>Crear Empresa</header>
                                                     <ul className="mega-links">
-                                                        <li><a href="#">Personal Email</a></li>
-                                                        <li><a href="#">Business Email</a></li>
-                                                        <li><a href="#">Mobile Email</a></li>
-                                                        <li><a href="#">Web Marketing</a></li>
+                                                        <li><a href="/datos/empresa">Insertar Datos</a></li>
+                                                        <li><a href="#">Mis productos</a></li>
                                                     </ul>
                                                 </div>
+
                                                 <div className="row">
-                                                    <header>Security services</header>
+                                                    <header>Comunidad</header>
                                                     <ul className="mega-links">
-                                                        <li><a href="#">Site Seal</a></li>
-                                                        <li><a href="#">VPS Hosting</a></li>
-                                                        <li><a href="#">Privacy Seal</a></li>
-                                                        <li><a href="#">Website design</a></li>
+                                                        <li><a href="/chat">Chat</a></li>
+
                                                     </ul>
                                                 </div>
                                             </div>

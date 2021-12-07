@@ -34,15 +34,20 @@ const UserType = () => {
         }
     ]
 
-    const [rol, setRol] = useState('Selecciona a un usuario');
+    /* const [newRol, setNewRol] = useState(()=>{
+        return window.localStorage.getItem('type')
+    }) */
+
+    const [rol, setRol] = useState('Elija un tipo');
 
     const selectRole = () => {
         dispatch(setUserLoginDetails({
             name: userName,
             email: userEmail,
             photo: userPhoto,
-            type: rol
+            type: rol,
         }))
+
         history.push('/')
     }
 
@@ -54,7 +59,7 @@ const UserType = () => {
     if (userName) {
         return (
             <div className="user__all">
-                <h2 className="title__user">Hola, antes de comenzar porfavor aloja el tipo de usuario que sera.</h2>
+                <h2 className="title__user">Hola, antes de comenzar porfavor alija el tipo de usuario que sera.</h2>
                 <div className="container__user">
                     <div className="option__user">
 

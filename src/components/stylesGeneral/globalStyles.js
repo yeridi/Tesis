@@ -66,6 +66,11 @@ export const GlobalStyle = createGlobalStyle`
         background:${({ theme }) => theme.body} !important;
         color: color:${({ theme }) => theme.text} !important;
     }
+
+    .form__chatForm{
+        background:${({ theme }) => theme.body} !important;
+        color: color:${({ theme }) => theme.text} !important;   
+    }
 `;
 
 export const lightTheme = {

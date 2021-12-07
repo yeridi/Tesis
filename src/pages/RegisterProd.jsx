@@ -9,7 +9,6 @@ const RegisterProd = () => {
             <RegisterProduct />
 
             <Footer />
-
         </>
     )
 }

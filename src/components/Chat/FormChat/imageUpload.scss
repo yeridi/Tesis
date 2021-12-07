@@ -1,0 +1,25 @@
+.form__chatForm {
+  position: fixed;
+  z-index: 10;
+  width: 70%;
+  bottom: 3%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.082);
+  background: #fff;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 2rem;
+  min-width: 500px;
+  .form__chatForm__inputs {
+    width: 100%;
+  }
+  .from__progress {
+    width: 80%;
+    margin: 0 auto -1rem;
+    display: block;
+  }
+}

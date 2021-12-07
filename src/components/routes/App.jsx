@@ -14,6 +14,7 @@ import chat from '../../pages/chat'
 import Login from '../../components/login/Login'
 import CompyInfo from '../../pages/CompyInfo'
 import RegisterProd from '../../pages/RegisterProd'
+import CompanyRegister from '../../pages/CompanyRegister'
 
 /* darkmode */
 import { Toggle } from '../toggle/Toggle'
@@ -70,6 +71,7 @@ const App = () => {
                     <Route exact path="/login" component={Login}></Route>
                     <Route exact path="/selectuser" component={UserType}></Route>
                     <Route exact path="/producto/nuevo" component={RegisterProd}></Route>
+                    <Route exact path="/datos/empresa" component={CompanyRegister}></Route>
                     <Route component={Error}></Route>
                 </Switch>
             </BrowserRouter>
