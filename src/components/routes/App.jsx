@@ -27,9 +27,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { auth } from '../../firebase'
 import Questions from '../../pages/Questions'
 import Register from '../../pages/Register'
+import Post from '../../pages/Post'
+import MyPost from '../../pages/MyPost'
+import EachPost from '../../pages/EachPost'
 
 
 const App = () => {
+
 
     /* login */
     const dispatch = useDispatch();
@@ -78,6 +82,9 @@ const App = () => {
                     <Route exact path="/producto/nuevo" component={RegisterProd}></Route>
                     <Route exact path="/datos/empresa" component={CompanyRegister}></Route>
                     <Route exact path="/preguntas" component={Questions}></Route>
+                    <Route exact path="/posts" component={Post}></Route>
+                    <Route exact path="/mis/posts" component={MyPost}></Route>
+                    <Route exact path="/posts/:id" component={EachPost}></Route>
                     <Route component={Error}></Route>
                 </Switch>
             </BrowserRouter>

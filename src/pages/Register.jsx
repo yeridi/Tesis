@@ -32,11 +32,14 @@ const Register = () => {
 
     const handleSubmit = async () => {
         const response = await registerUser({ name, email, googleId, image, phoneNumber });
-        if (response) {
-            console.log('error faltal')
+        if (response.ok == false) {
+            dispatch(
+                setSignOutState()
+            )
+            console.log('pero que paso mi loco')
         }
-        console.log(response)
     }
+
 
     return (
         <>

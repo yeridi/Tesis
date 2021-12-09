@@ -22,8 +22,8 @@ const Companies = () => {
 
     const getCompanies = async () => {
         const response = await list()
-        console.log(response)
-        setData(response)
+        console.log(response.data)
+        setData(response.data)
         setLoad(null)
 
     }

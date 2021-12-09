@@ -97,7 +97,8 @@ const Header = () => {
                                                     <header>Comunidad</header>
                                                     <ul className="mega-links">
                                                         <li><a href="/chat">Chat</a></li>
-
+                                                        <li><a href="/posts">Post</a></li>
+                                                        <li><a href="/mis/posts">Mis Posts</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
