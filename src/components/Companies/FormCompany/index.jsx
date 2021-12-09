@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Container, TextField, Grid, TextareaAutosize } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { creatingCompany } from '../../../services/companies';
+import { useSelector } from 'react-redux'
+import { selectGoogleId } from '../../../features/user/userSlice';
+
 
 const useStyles = makeStyles((theme) => ({
     containerForm: {
@@ -17,30 +21,44 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 const FormCompany = () => {
 
     const classes = useStyles();
+    const userId = localStorage.getItem('id')
 
     const [fields, setFields] = useState({
+        userId: userId,
         name: '',
-        facebook: '',
-        linkedin: '',
-        instagram: '',
-        whatssap: '',
         description: '',
+        image: '',
+        link: '',
+        workers: '',
+        social: [
+            'https:/facebook.com',
+            'https:/twitter.com',
+            'https:/youtube.com'
+        ]
     })
+
+    //const [social, setSocial] = useState([])
+
 
     const handleInputChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
+
         setFields({
             ...fields,
-            [name]: value
+            [name]: value,
         })
     }
 
-    const handleSubmit = () => {
-        console.log(fields)
+    const handleSubmit = async () => {
+        const response = await creatingCompany(fields);
+        console.log(response)
+        window.localStorage.setItem('idEnterprice', response._id)
+        //history.push('/')
     }
 
     return (
@@ -76,8 +94,7 @@ const FormCompany = () => {
                             label="Link de facebook"
                             variant="outlined"
                             fullWidth
-                            name="facebook"
-                            value={fields.facebook}
+                            name="social"
                             onChange={handleInputChange}
                         />
                     </Grid>
@@ -86,8 +103,7 @@ const FormCompany = () => {
                             label="Link de linkedin"
                             variant="outlined"
                             fullWidth
-                            value={fields.linkedin}
-                            name="linkedin"
+                            name="social"
                             onChange={handleInputChange}
                         />
                     </Grid>
@@ -96,18 +112,28 @@ const FormCompany = () => {
                             label="Link de Instagram"
                             variant="outlined"
                             fullWidth
-                            value={fields.instagram}
                             onChange={handleInputChange}
-                            name="instagram"
+                            name="social"
                         />
                     </Grid>
                     <Grid item sm={6} xs={12}>
                         <TextField
-                            label="Numero de whatssap"
+                            label="Cantidad de trabajadores"
+                            type="number"
                             variant="outlined"
                             fullWidth
-                            name="whatssap"
-                            value={fields.whatssap}
+                            name="workers"
+                            value={fields.workers}
+                            onChange={handleInputChange}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            label="Link de la empresa (su pagina web)"
+                            variant="outlined"
+                            fullWidth
+                            name="link"
+                            value={fields.link}
                             onChange={handleInputChange}
                         />
                     </Grid>
@@ -125,7 +151,12 @@ const FormCompany = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <h3 className={classes.title}>Seleccione imagen de la empresa</h3>
-                        <input type="file" />
+                        <input
+                            type="file"
+                            name="image"
+                            value={fields.image}
+                            onChange={handleInputChange}
+                        />
                     </Grid>
                     <button className="sendButton" onClick={handleSubmit}>Crear mi empresa</button>
                 </Grid>

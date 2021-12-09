@@ -1,26 +1,24 @@
 import * as METHODS from '../methods';
 import { baseURL } from '../config';
 
-const URL = `${baseURL}api/v1/product`;
+const URL = `${baseURL}api/v1/enterprise`;
 
 export const list = async () => {
     try {
-        const response = await fetch(`${URL}/all`, METHODS.GET());
+        const response = await fetch(`${URL}/all?limit=50&page=0`, METHODS.GET());
         const data = await response.json();
         return data;
     } catch (error) {
-        return error;
+        return error.message;
     }
 }
 
-
-export const creatingProduct = async (body) => {
+export const creatingCompany = async (body) => {
     try {
         const response = await fetch(`${URL}/store`, METHODS.POST(body));
         const data = await response.json();
         return data;
-    }
-    catch (error) {
-        return error;
+    } catch (error) {
+        return error.message;
     }
 }

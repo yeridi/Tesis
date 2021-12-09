@@ -2,10 +2,13 @@
 @import "../../stylesGeneral/mixinButtons.scss";
 .sendButton {
   @include third-button;
+  margin: 1rem auto;
+  display: block;
 }
 .everyting {
   width: 100%;
   height: 85vh;
+  margin-bottom: 10rem;
 }
 
 @media screen and (max-width: 800px) {

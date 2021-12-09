@@ -21,11 +21,12 @@ import { Toggle } from '../toggle/Toggle'
 import { GlobalStyle, lightTheme, darkTheme } from '../stylesGeneral/globalStyles'
 import { useDarkMore } from '../stylesGeneral/useDarkMode'
 import { ThemeProvider } from 'styled-components'
-import UserType from '../modalUser/UserType'
 /* redux */
-import { selectUserName, setUserLoginDetails } from '../../features/user/userSlice'
+import { selectUserName, setUserLoginDetails, selectUserType } from '../../features/user/userSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { auth } from '../../firebase'
+import Questions from '../../pages/Questions'
+import Register from '../../pages/Register'
 
 
 const App = () => {
@@ -33,6 +34,8 @@ const App = () => {
     /* login */
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const type = useSelector(selectUserType)
 
     const user = useSelector(selectUserName)
     useEffect(() => {
@@ -42,7 +45,9 @@ const App = () => {
                     name: authUser.displayName,
                     email: authUser.email,
                     photo: authUser.photoURL,
-                    type: ""
+                    type: type,
+                    googleId: authUser.uid,
+                    phoneNumber: authUser.phoneNumber
                 }));
             } else {
                 //the user dont exist
@@ -69,9 +74,10 @@ const App = () => {
                     <Route exact path="/product/information" component={productInfo}></Route>
                     <Route exact path="/chat" component={chat}></Route>
                     <Route exact path="/login" component={Login}></Route>
-                    <Route exact path="/selectuser" component={UserType}></Route>
+                    <Route exact path="/registrarse" component={Register}></Route>
                     <Route exact path="/producto/nuevo" component={RegisterProd}></Route>
                     <Route exact path="/datos/empresa" component={CompanyRegister}></Route>
+                    <Route exact path="/preguntas" component={Questions}></Route>
                     <Route component={Error}></Route>
                 </Switch>
             </BrowserRouter>

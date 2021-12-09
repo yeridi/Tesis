@@ -33,9 +33,11 @@ const Product = () => {
 
     const getProducts = async () => {
         const response = await list();
-        setInfo(response.hits)
+
+        console.log(response)
+        /* setInfo(response.hits)
         console.log(response.hits)
-        setLoad(false)
+        setLoad(false) */
     }
 
     useEffect(() => {
@@ -55,9 +57,9 @@ const Product = () => {
 
     /* loader */
 
-    if (load) {
+    /* if (load) {
         return <Loader />
-    }
+    } */
 
 
     return (
@@ -92,7 +94,7 @@ const Product = () => {
                     </div>
                     {/* products list*/}
                     <div className="container__products">
-                        {info == "" ? (
+                        {/* {info == "" ? (
                             <NoResults />
                         ) : (
                             info.map(infos => (
@@ -104,7 +106,7 @@ const Product = () => {
                                 />
                             ))
                         )
-                        }
+                        } */}
                     </div>
                 </div>
             </div>

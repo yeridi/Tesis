@@ -19,8 +19,6 @@ const Header = () => {
     const user = useSelector(selectUserPhoto);
     const type = useSelector(selectUserType);
 
-
-
     const handleAuth = () => {
         if (user) {
             auth.signOut().then(() => {
@@ -30,6 +28,9 @@ const Header = () => {
                 alert(err.message)
             })
         }
+
+        window.localStorage.removeItem('id');
+        window.localStorage.removeItem('idEnterprice')
     }
 
     return (
@@ -61,7 +62,7 @@ const Header = () => {
                             !user ? (
                                 <>
                                     <li><Link to="/login" className="login__button">Login</Link></li>
-
+                                    <li><Link to="/registrarse" className="login__button">Registrarse</Link></li>
                                 </>
                             ) : (
                                 <>
@@ -85,9 +86,9 @@ const Header = () => {
                                                 </div>
 
                                                 <div className="row">
-                                                    <header>Crear Empresa</header>
+                                                    <header>Empresa</header>
                                                     <ul className="mega-links">
-                                                        <li><a href="/datos/empresa">Insertar Datos</a></li>
+                                                        <li><a href="/datos/empresa">Crear empresa</a></li>
                                                         <li><a href="#">Mis productos</a></li>
                                                     </ul>
                                                 </div>

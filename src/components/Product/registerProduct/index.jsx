@@ -2,14 +2,14 @@ import { useState } from 'react';
 import {
     TextField,
     Grid,
+    FormControlLabel,
+    Checkbox,
     TextareaAutosize,
-    Select,
-    FormControl,
-    MenuItem,
-    InputLabel
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import './stylesRegister.scss';
+
+import { creatingProduct } from '../../../services/products';
 
 const useStyles = makeStyles((theme) => ({
     containerForm: {
@@ -28,180 +28,222 @@ const useStyles = makeStyles((theme) => ({
     infoExtra: {
         color: '#5d60ff',
         marginBottom: '20px'
+    },
+    warranty: {
+        display: 'block',
+        marginRight: '2rem'
     }
 }));
 
 const RegisterProduct = () => {
     const classes = useStyles();
 
-    const [fields, setFields] = useState({
+    const [fields, setFields] = useState([])
+
+    const [data, setData] = useState({
         name: '',
+        brand: '',
         price: '',
-        description: '',
-        category: '',
-        facebook: '',
-        phone_number: '',
-        direction: '',
-        email: '',
-        instagram: ''
+        capacity: '',
+        model: '',
+        type: '',
+        energyConsume: '',
+        install: '',
+        warrancy: '',
+        stock: ''
     })
 
+    const handleInputChanges = (e) => {
+        const { name, type, checked, value } = e.target;
+        const val = type === 'checkbox' ? checked : value;
 
-    const handleInputChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        setFields({
-            ...fields,
-            [name]: value
+        setData({
+            ...data,
+            [name]: val
         })
+        console.log(data)
     }
 
-    const sendInformation = () => {
-        console.log(fields)
+    const handleInputChange = (e) => {
+        console.log(e.target.files)
+        setFields(e.target.files)
+    }
+
+    const sendInformation = async (e) => {
+
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('image1', fields[0]);
+        formData.append('image2', fields[1]);
+        formData.append('image3', fields[2]);
+        formData.append('name', data.name);
+        formData.append('brand', data.brand);
+        formData.append('price', data.price);
+        formData.append('capacity', data.capacity);
+        formData.append('model', data.model);
+        formData.append('type', data.type);
+        formData.append('energyConsume', data.energyConsume);
+        formData.append('install', data.install);
+        formData.append('warrancy', data.warrancy);
+        formData.append('stock', data.stock);
+
+        formData.append('enterpriseId', window.localStorage.getItem('idEnterprice'));
+
+        const response = await fetch('https://termoconfort-test1.herokuapp.com/api/v1/product/store', {
+            method: 'post',
+            body: formData
+        });
+
+        /* const response = await creatingProduct(formData) */
+        console.log(await response.json())
     }
 
     return (
         <div className="everyting">
             <div className={classes.containerForm}>
-                <Grid
-                    container
-                    direction="row"
-                    justifyContent="center"
-                    alignItems="center"
-                    spacing={5}
-                >
-                    <Grid item sm={6} xs={12}>
-                        <h2 className={classes.subtitle}>Informacion del producto</h2>
-                        <Grid container spacing={3}>
-                            <Grid item sm={6} xs={12}>
-                                <TextField
-                                    fullWidth
-                                    label="Nombre del producto"
-                                    variant="outlined"
-                                    name="name"
-                                    value={fields.name}
-                                    className={classes.input}
-                                    onChange={handleInputChange}
+                <form encType="multipart/form-data" onSubmit={sendInformation}>
+                    <Grid
+                        container
+                        direction="row"
+                        justifyContent="center"
+                        alignItems="center"
+                        spacing={5}
+                    >
+                        <Grid item sm={6} xs={12}>
+                            <h2 className={classes.subtitle}>Informacion del producto</h2>
+                            <Grid container spacing={3}>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Nombre del producto"
+                                        variant="outlined"
+                                        name="name"
+                                        value={data.name}
+                                        className={classes.input}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Precio del producto"
+                                        variant="outlined"
+                                        price="price"
+                                        value={data.price}
+                                        className={classes.input}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Marca del producto"
+                                        variant="outlined"
+                                        name="brand"
+                                        value={data.brand}
+                                        className={classes.input}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Capacidad"
+                                        variant="outlined"
+                                        name="capacity"
+                                        value={data.capacity}
+                                        className={classes.input}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Modelo"
+                                        variant="outlined"
+                                        name="model"
+                                        value={data.model}
+                                        className={classes.input}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Tipo"
+                                        variant="outlined"
+                                        name="type"
+                                        value={data.type}
+                                        className={classes.input}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Consumo de energia"
+                                        variant="outlined"
+                                        name="energyConsume"
+                                        value={data.energyConsume}
+                                        className={classes.input}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Cantidad de unidades"
+                                        variant="outlined"
+                                        name="stock"
+                                        value={data.stock}
+                                        className={classes.input}
+                                        type="number"
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextareaAutosize
+                                        className={classes.stylearea}
+                                        aria-label="maximum height"
+                                        placeholder="Descripcion del producto"
+                                        defaultValue="Mi producto ..."
+                                        name="description"
+                                        value={data.description}
+                                        onChange={handleInputChanges}
+                                    />
+                                </Grid>
+
+                                <FormControlLabel
+                                    name="warranty"
+                                    className={classes.warranty}
+                                    control={
+                                        <Checkbox
+                                            name="warranty"
+                                            onChange={handleInputChanges}
+                                            color="primary"
+                                        />
+                                    }
+                                    label="Garantia"
                                 />
-                            </Grid>
-                            <Grid item sm={6} xs={12}>
-                                <TextField
-                                    fullWidth
-                                    label="Precio del producto"
-                                    variant="outlined"
-                                    name="price"
-                                    value={fields.price}
-                                    className={classes.input}
-                                    onChange={handleInputChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextareaAutosize
-                                    className={classes.stylearea}
-                                    aria-label="maximum height"
-                                    placeholder="Descripcion del producto"
-                                    defaultValue="Mi producto ..."
-                                    name="description"
-                                    value={fields.description}
-                                    onChange={handleInputChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControl variant="outlined" className={classes.formControl} fullWidth>
-                                    <InputLabel id="demo-simple-select-outlined-label">Categoria</InputLabel>
-                                    <Select
-                                        name="category"
-                                        value={fields.category}
-                                        labelId="demo-simple-select-outlined-label"
-                                        id="demo-simple-select-outlined"
-                                        label="Categoria"
+                                <Grid item xs={12}>
+                                    <h5>Seleccione 3 imagenes</h5>
+                                    <input
+                                        type="file"
+                                        name="images"
+                                        multiple
+                                        id="fields"
                                         onChange={handleInputChange}
-                                    >
-                                        <MenuItem value="">
-                                            <em>Categoria</em>
-                                        </MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <input type="file" />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <input type="file" />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <input type="file" />
+                                    />
+                                </Grid>
+
                             </Grid>
 
-                        </Grid>
+                            <button className="sendButton" onClick={sendInformation} type="submit">Publicar Producto</button>
 
-                    </Grid>
-                    <Grid item sm={6} xs={12}>
-                        <h2>Informacion de Contacto</h2>
-                        <h5 className={classes.infoExtra}>(Esta informacion no es necesaria *)</h5>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    label="Link de facebook"
-                                    variant="outlined"
-                                    name="facebook"
-                                    value={fields.facebook}
-                                    className={classes.input}
-                                    onChange={handleInputChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    label="Numero de celular"
-                                    variant="outlined"
-                                    name="phone_number"
-                                    value={fields.phone_number}
-                                    className={classes.input}
-                                    onChange={handleInputChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    label="Dirección"
-                                    variant="outlined"
-                                    name="direction"
-                                    value={fields.direction}
-                                    className={classes.input}
-                                    onChange={handleInputChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Email"
-                                    variant="outlined"
-                                    name="email"
-                                    className={classes.input}
-                                    value={fields.email}
-                                    onChange={handleInputChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Instagram"
-                                    variant="outlined"
-                                    name="instagram"
-                                    className={classes.input}
-                                    value={fields.instagram}
-                                    onChange={handleInputChange}
-                                />
-                            </Grid>
-                            <button className="sendButton" onClick={sendInformation}>Publicar Producto</button>
                         </Grid>
                     </Grid>
-                </Grid>
+                </form>
             </div>
         </div>
     )

@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 /* style */
 import './styles/home.scss'
+import Alert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
 /* components */
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
@@ -13,6 +16,20 @@ import community from '../images/community.svg'
 import { Link } from 'react-router-dom'
 
 const Index = () => {
+
+    const id = window.localStorage.getItem('id')
+    const [message, setMessage] = useState(null)
+
+    const validate = () => {
+        if (id) {
+            setMessage(true)
+        }
+    }
+
+    useEffect(() => {
+        validate()
+    }, [])
+
     return (
         <>
             <Header />
@@ -29,6 +46,13 @@ const Index = () => {
                     </div>
                 </div>
             </section>
+            {
+                message &&
+                <Alert severity="success" color="info" onClose={() => setMessage(null)} className="success">
+                    Has iniciado sesion correctamente
+                </Alert>
+
+            }
 
             <section className="about__us wow animate__animated animate__fadeInLeft animate__delay-1s">
                 <div className="about__us__container">
@@ -96,15 +120,15 @@ const Index = () => {
                 <div className="container__how__all">
                     <div className="container__how">
                         <h1>¿CÓMO PUEDO VENDER MI PRODUCTO AQUI?</h1>
-                        <a href="">Sigue la Guia</a>
+                        <a href="/preguntas">Click aqui</a>
                     </div>
                     <div className="container__how">
-                        <a href="">Servicios</a>
+                        <a href="/preguntas">Click aqui</a>
                         <h1>¿CÓMO CONTRATO ALGUN SERVICIO?</h1>
                     </div>
                     <div className="container__how">
                         <h1>SOBRE LOS PRODUCTOS Y LOS SERVICIOS DE LA APP</h1>
-                        <a href="">Sigue la Guia</a>
+                        <a href="/preguntas">Click aqui</a>
                     </div>
                 </div>
             </section>
