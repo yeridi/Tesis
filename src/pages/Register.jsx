@@ -12,6 +12,7 @@ const Register = () => {
     const [data, setData] = useState(false)
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const name = useSelector(selectUserName);
     const email = useSelector(selectUserEmail);
@@ -30,14 +31,18 @@ const Register = () => {
             })
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         const response = await registerUser({ name, email, googleId, image, phoneNumber });
         if (response.ok == false) {
+            alert('tu ya estas registrado')
             dispatch(
                 setSignOutState()
             )
             console.log('pero que paso mi loco')
         }
+        history.push('/login')
+
     }
 
 

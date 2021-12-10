@@ -24,6 +24,7 @@ const Companies = () => {
         const response = await list()
         console.log(response.data)
         setData(response.data)
+        console.log(response.data)
         setLoad(null)
 
     }
@@ -53,10 +54,12 @@ const Companies = () => {
                                 name={infos.name}
                                 description={infos.description}
                                 workers={infos.workers}
+                                img={infos.image}
+                                id={infos._id}
                             />
                         ))
                     ) : (
-                        <p>No recipes found!</p>
+                        <p>Sin Datos :(!</p>
                     )}
                 </div>
             </div>

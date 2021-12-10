@@ -22,3 +22,23 @@ export const creatingCompany = async (body) => {
         return error.message;
     }
 }
+
+export const showCompany = async (id) => {
+    try {
+        const response = await fetch(`${URL}/show/${id}`, METHODS.GET());
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return error.message;
+    }
+}
+
+export const isEnterprise = async (id) => {
+    try {
+        const response = await fetch(`${URL}/has-enterprise/${id}`, METHODS.GET());
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return error.message;
+    }
+}

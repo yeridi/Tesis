@@ -24,3 +24,15 @@ export const creatingProduct = async (body) => {
         return error;
     }
 }
+
+
+export const showProduct = async (id) => {
+    try {
+        const response = await fetch(`${URL}/show/${id}`, METHODS.GET(id));
+        const data = await response.json();
+        return data;
+    }
+    catch (error) {
+        return error;
+    }
+}

@@ -19,6 +19,9 @@ const Header = () => {
     const user = useSelector(selectUserPhoto);
     const type = useSelector(selectUserType);
 
+    const enterprise = window.localStorage.getItem('hasEnterprise')
+    console.log(enterprise)
+
     const handleAuth = () => {
         if (user) {
             auth.signOut().then(() => {
@@ -43,7 +46,7 @@ const Header = () => {
 
                     <ul className="nav-links">
                         <label htmlFor="close-btn" className="btn close-btn"><i className="fas fa-times"></i></label>
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/">Inicio</Link></li>
                         <li><Link to="/product">Productos</Link></li>
                         {/* <li>
                             <a href="#" className="desktop-item">Dropdown Menu</a>
@@ -57,7 +60,7 @@ const Header = () => {
                             </ul>
                         </li> */}
                         <li><Link to="/business">Empresas</Link></li>
-                        <li><Link to="/application">Movil</Link></li>
+                        {/* <li><Link to="/application">Movil</Link></li> */}
                         {
                             !user ? (
                                 <>
@@ -78,27 +81,31 @@ const Header = () => {
                                                 <div className="row">
                                                     <header>Productos</header>
                                                     <ul className="mega-links">
-                                                        <li><a href="#">Mis productos</a></li>
+                                                        <li><a href="/product">Ver productos</a></li>
                                                         <li><a href="/producto/nuevo">Subir producto</a></li>
-                                                        <li><a href="#">Business cards</a></li>
-                                                        <li><a href="#">Custom logo</a></li>
                                                     </ul>
                                                 </div>
 
                                                 <div className="row">
                                                     <header>Empresa</header>
-                                                    <ul className="mega-links">
-                                                        <li><a href="/datos/empresa">Crear empresa</a></li>
-                                                        <li><a href="#">Mis productos</a></li>
-                                                    </ul>
+                                                    {enterprise === 'true' ?
+                                                        <ul className="mega-links">
+                                                            <li><a href="/datos/empresa">Mi Empresa</a></li>
+                                                        </ul>
+                                                        :
+                                                        <ul className="mega-links">
+                                                            <li><a href="/datos/empresa">Crear empresa</a></li>
+                                                        </ul>
+                                                    }
+
                                                 </div>
 
                                                 <div className="row">
                                                     <header>Comunidad</header>
                                                     <ul className="mega-links">
-                                                        <li><a href="/chat">Chat</a></li>
-                                                        <li><a href="/posts">Post</a></li>
-                                                        <li><a href="/mis/posts">Mis Posts</a></li>
+                                                        {/* <li><a href="/chat">Chat</a></li> */}
+                                                        <li><a href="/posts">Publicaciones</a></li>
+                                                        <li><a href="/mis/posts">Mis Publicaciones</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

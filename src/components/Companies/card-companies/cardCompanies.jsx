@@ -5,7 +5,7 @@ import './cardCompanies.scss';
 
 import { Link } from 'react-router-dom'
 
-const cardCompanies = ({ name, img, description, workers }) => {
+const cardCompanies = ({ name, img, description, workers, id }) => {
 
     return (
         <>
@@ -21,7 +21,7 @@ const cardCompanies = ({ name, img, description, workers }) => {
                     <p>{description}</p>
                 </div>
                 <div class="bussines-buttons">
-                    <Link to="/business/go">More Info</Link>
+                    <Link to={`/business/go/${id}`}>Más información</Link>
                 </div>
                 <div class="bussines-about">
                     {/* <div class="each-about-staff">
@@ -37,7 +37,7 @@ const cardCompanies = ({ name, img, description, workers }) => {
                     <div class="each-about-another">
                         <i class="fas fa-user-tie"></i>
                         <h4>{workers}</h4>
-                        <p>Staff</p>
+                        <p>Personal N°</p>
                     </div>
                 </div>
             </div>

@@ -6,17 +6,37 @@ import ProductCompany from '../components/Companies/productsCompany/productCompa
 
 import styled from 'styled-components'
 
-function CompyInfo() {
+import { showCompany } from '../services/companies'
+import { useState } from 'react'
+
+function CompyInfo(props) {
+
+    const id = props.match.params.id;
+
+    const [data, setData] = useState();
+
+    const loadData = async () => {
+        const response = await showCompany(id)
+        setData(response.data)
+        console.log(response)
+    }
+
+    useState(() => {
+        loadData()
+    }, [])
+
     return (
         <div>
-            <Header/>
-            <CompanyInformation/>
+            <Header />
+            <CompanyInformation
+                data={data}
+            />
             <ContainerCompany>
                 <h1>Dale un Vistazo a los Productos</h1>
             </ContainerCompany>
-            
-            <ProductCompany/>
-            <Footer/>
+
+            <ProductCompany />
+            <Footer />
         </div>
     )
 }

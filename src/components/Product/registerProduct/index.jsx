@@ -8,8 +8,14 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import './stylesRegister.scss';
+import error from '../../../images/error.svg'
 
 import { creatingProduct } from '../../../services/products';
+
+import Alert from '@material-ui/lab/Alert';
+
+import { isEnterprise } from '../../../services/companies'
+import { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
     containerForm: {
@@ -40,6 +46,14 @@ const RegisterProduct = () => {
 
     const [fields, setFields] = useState([])
 
+    const idEnterprise = window.localStorage.getItem('idEnterprice');
+
+    const id = window.localStorage.getItem('id')
+
+    const [enterprise, setEnterprise] = useState()
+
+    const [message, setMessage] = useState(null)
+
     const [data, setData] = useState({
         name: '',
         brand: '',
@@ -48,7 +62,7 @@ const RegisterProduct = () => {
         model: '',
         type: '',
         energyConsume: '',
-        install: '',
+        install: false,
         warrancy: '',
         stock: ''
     })
@@ -61,11 +75,9 @@ const RegisterProduct = () => {
             ...data,
             [name]: val
         })
-        console.log(data)
     }
 
     const handleInputChange = (e) => {
-        console.log(e.target.files)
         setFields(e.target.files)
     }
 
@@ -74,13 +86,14 @@ const RegisterProduct = () => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append('image1', fields[0]);
-        formData.append('image2', fields[1]);
-        formData.append('image3', fields[2]);
+        formData.append('images', fields[0]);
+        formData.append('images', fields[1]);
+        formData.append('images', fields[2]);
         formData.append('name', data.name);
         formData.append('brand', data.brand);
         formData.append('price', data.price);
         formData.append('capacity', data.capacity);
+        formData.append('description', data.description);
         formData.append('model', data.model);
         formData.append('type', data.type);
         formData.append('energyConsume', data.energyConsume);
@@ -90,18 +103,54 @@ const RegisterProduct = () => {
 
         formData.append('enterpriseId', window.localStorage.getItem('idEnterprice'));
 
+
         const response = await fetch('https://termoconfort-test1.herokuapp.com/api/v1/product/store', {
             method: 'post',
             body: formData
         });
 
         /* const response = await creatingProduct(formData) */
-        console.log(await response.json())
+        const information = await response.json();
+        console.log(information)
+        if (information.ok == true) {
+            setMessage(true)
+            setData('')
+        }
+    }
+
+    const loadEnterprise = async () => {
+        const response = await isEnterprise(id)
+        setEnterprise(response.data.hasEnterprise)
+    }
+
+    useEffect(() => {
+        loadEnterprise()
+    }, [])
+    if (enterprise == false) {
+        return (
+            <>
+                <div className="container__denied">
+                    <h2>Upssss..., esta opción solo esta habilitada para las empresas</h2>
+                    <img src={error} alt="" />
+                    <h4>Si quieres ingresar un producto registra tu empresa</h4>
+                    <a href="/datos/empresa">Registrar Mi Empresa</a>
+                </div>
+            </>
+        )
     }
 
     return (
+
+
         <div className="everyting">
             <div className={classes.containerForm}>
+                {
+                    message &&
+                    <Alert severity="success" color="info" onClose={() => setMessage(null)} className="success">
+                        Tu producto ha sido ingresado <a href="/product">Ver productos</a>
+                    </Alert>
+
+                }
                 <form encType="multipart/form-data" onSubmit={sendInformation}>
                     <Grid
                         container
@@ -129,10 +178,11 @@ const RegisterProduct = () => {
                                         fullWidth
                                         label="Precio del producto"
                                         variant="outlined"
-                                        price="price"
+                                        name="price"
                                         value={data.price}
                                         className={classes.input}
                                         onChange={handleInputChanges}
+                                        type="number"
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -234,6 +284,7 @@ const RegisterProduct = () => {
                                         multiple
                                         id="fields"
                                         onChange={handleInputChange}
+                                        required
                                     />
                                 </Grid>
 

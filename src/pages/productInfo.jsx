@@ -7,16 +7,39 @@ import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
 import CardSwiper from '../components/sliders/CardSwiper'
 
-const productInformation = () =>{
-    return(
+import { showProduct } from '../services/products'
+import { useEffect } from 'react'
+import { useState } from 'react'
+
+const ProductInformation = (props) => {
+
+    const id = props.match.params.id;
+
+    const [info, setData] = useState();
+
+    console.log(id)
+
+    const loadData = async () => {
+        const response = await showProduct(id)
+        setData(response.data)
+        console.log(response)
+    }
+
+    useEffect(() => {
+        loadData()
+    }, [])
+
+    return (
         <>
-            <Header/>
-            <SelectProduct/>
+            <Header />
+            <SelectProduct
+                data={info}
+            />
             <ContainerProduct>
                 <h2>Productos Recomendados</h2>
             </ContainerProduct>
-            <CardSwiper/> 
-            <Footer/>
+            <CardSwiper />
+            <Footer />
         </>
     )
 }
@@ -25,4 +48,4 @@ const ContainerProduct = styled.div`
 `
 
 
-export default productInformation
+export default ProductInformation

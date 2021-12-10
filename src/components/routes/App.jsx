@@ -39,6 +39,7 @@ const App = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+
     const type = useSelector(selectUserType)
 
     const user = useSelector(selectUserName)
@@ -74,8 +75,8 @@ const App = () => {
                     <Route exact path="/product" component={Product}></Route>
                     <Route exact path="/load" component={Loader}></Route>
                     <Route exact path="/business" component={Companies}></Route>
-                    <Route exact path="/business/go" component={CompyInfo}></Route>
-                    <Route exact path="/product/information" component={productInfo}></Route>
+                    <Route exact path="/business/go/:id" component={CompyInfo}></Route>
+                    <Route exact path="/product/information/:id" component={productInfo}></Route>
                     <Route exact path="/chat" component={chat}></Route>
                     <Route exact path="/login" component={Login}></Route>
                     <Route exact path="/registrarse" component={Register}></Route>

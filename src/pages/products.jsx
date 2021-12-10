@@ -15,15 +15,14 @@ import NoResults from '../components/Errors/NoResults'
 import './styles/product.scss'
 /* api */
 import { list } from '../services/products'
-import { selectUserType } from '../features/user/userSlice'
 
 
 
 const Product = () => {
 
 
-    const [info, setInfo] = useState([]);
-    const [query, setQuery] = useState("chicken");
+    const [info, setInfo] = useState();
+
     const [load, setLoad] = useState(true);
 
 
@@ -34,7 +33,8 @@ const Product = () => {
     const getProducts = async () => {
         const response = await list();
 
-        console.log(response)
+        setInfo(response.data)
+        console.log(response.data)
         /* setInfo(response.hits)
         console.log(response.hits)
         setLoad(false) */
@@ -42,20 +42,18 @@ const Product = () => {
 
     useEffect(() => {
         getProducts();
-    }, [query]);
+    }, []);
 
-    const getSearch = e => {
+    /* const getSearch = e => {
         e.preventDefault();
         setQuery(inputText);
-    }
+    } */
 
-    /* filters */
-    const filterProducts = (e) => {
+    /* const filterProducts = (e) => {
         setQuery(e.target.value)
         console.log(e.target.value)
-    }
+    } */
 
-    /* loader */
 
     /* if (load) {
         return <Loader />
@@ -71,8 +69,8 @@ const Product = () => {
             {/* Items - Product */}
             <div className="container__items">
                 <Search
-                    setInputText={setInputText}
-                    getSearch={getSearch}
+                /* setInputText={setInputText}
+                getSearch={getSearch} */
                 />
                 {/* <form onSubmit={getSeearch} className="search__form">
                     <div className="search__box">
@@ -87,26 +85,25 @@ const Product = () => {
                         <div className="each-filter">
                             <h2>FILTERS</h2>
                             <Selected
-                                filterProducts={filterProducts}
-                                newvalue={query}
+                            /* filterProducts={filterProducts}
+                            newvalue={query} */
                             />
                         </div>
                     </div>
                     {/* products list*/}
                     <div className="container__products">
-                        {/* {info == "" ? (
-                            <NoResults />
-                        ) : (
+                        {info &&
                             info.map(infos => (
                                 <ProductCard
-                                    key={infos.recipe.label}
-                                    title={infos.recipe.label}
-                                    calories={infos.recipe.calories}
-                                    image={infos.recipe.image}
+                                    key={infos._id}
+                                    name={infos.name}
+                                    description={infos.description}
+                                    img={infos.images}
+                                    id={infos._id}
+                                    price={infos.price}
                                 />
                             ))
-                        )
-                        } */}
+                        }
                     </div>
                 </div>
             </div>

@@ -35,7 +35,8 @@ function Login() {
         const response = await loginUser({ email, googleId });
         console.log(response)
         dispatch(setCompanyDetails(response))
-        window.localStorage.setItem('id', response.data._id)
+        window.localStorage.setItem('id', response.data.user._id)
+        window.localStorage.setItem('hasEnterprise', response.data.hasEnterprise)
         history.push('/')
     }
 

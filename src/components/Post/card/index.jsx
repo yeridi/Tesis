@@ -39,7 +39,6 @@ const CardPost = ({ title, description, important, id, myId }) => {
                                 <button className='my__post' onClick={handleDelete}>Eliminar Post</button>
                             </CardActions>
                         }
-
                     </CardActionArea>
                 </Card>
             </a>

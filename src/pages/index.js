@@ -38,7 +38,7 @@ const Index = () => {
                 <div className="text__section wow animate__animated animate__fadeIn">
                     <div className="text__section__information">
                         <h1>Te Espera Una Gran Comunidad</h1>
-                        <p>Aqui puedes encontrar productos de ventilacion para tu casa y si tienes alguna pregunta con respecto al tema ingresa a nuestra comunidad.</p>
+                        <p>Aqui puedes encontrar productos de ventilación para tu casa y si tienes alguna pregunta con respecto al tema ingresa a nuestra comunidad.</p>
                         <button>Ver Productos</button>
                     </div>
                     <div className="text__section__image">
@@ -49,7 +49,7 @@ const Index = () => {
             {
                 message &&
                 <Alert severity="success" color="info" onClose={() => setMessage(null)} className="success">
-                    Has iniciado sesion correctamente
+                    Has iniciado sesión corréctamente
                 </Alert>
 
             }
@@ -57,19 +57,19 @@ const Index = () => {
             <section className="about__us wow animate__animated animate__fadeInLeft animate__delay-1s">
                 <div className="about__us__container">
                     <div className="about__us__title">
-                        <h1>UN SERVICIO GRATUITO Y FACIL DE USAR</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio saepe ipsam inventore debitis, harum sed?</p>
+                        <h1>UN SERVICIO GRATUITO Y FÁCIL DE USAR</h1>
+                        <p>Nuestro servicio es muy facil de usar, además que es gratuito ¿Qué esperas?, unete a nuestra comunidad </p>
                     </div>
                     <div className="about__us__services">
                         <div className="about__us__services__each1">
                             <h3>PRODUCTOS</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vel animi optio, eius recusandae nesciunt minima! Magni</p>
-                            <button>Hi everyone</button>
+                            <p>Puedes publicar todos tus productos aqui, este servicio es gratis, pero para ello debes unirte a nuestra comunidad.</p>
+                            <button>Ver Productos</button>
                         </div>
                         <div className="about__us__services__each2">
                             <h3>EMPRESAS</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vel animi optio, eius recusandae nesciunt</p>
-                            <button>Hi everyone</button>
+                            <p>Puedes crear tu propia empresa aqui, además que este servicio es gratuito para cualquier persona</p>
+                            <button>Ver Empresas</button>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ const Index = () => {
                         <img src={community} />
                     </div>
                     <div className="community__rightSection">
-                        <h2>Unete a Nuestra Comunidad</h2>
+                        <h2>Únete a Nuestra Comunidad</h2>
                         <Link to="/login" className="link__login">Conocer Comunidad</Link>
                     </div>
                 </div>
