@@ -46,6 +46,8 @@ const RegisterProduct = () => {
 
     const [fields, setFields] = useState([])
 
+    const [upload, setUpload] = useState(true)
+
     const idEnterprise = window.localStorage.getItem('idEnterprice');
 
     const id = window.localStorage.getItem('id')
@@ -85,6 +87,8 @@ const RegisterProduct = () => {
 
         e.preventDefault();
 
+        setUpload(false)
+
         const formData = new FormData();
         formData.append('images', fields[0]);
         formData.append('images', fields[1]);
@@ -114,7 +118,7 @@ const RegisterProduct = () => {
         console.log(information)
         if (information.ok == true) {
             setMessage(true)
-            setData('')
+            setUpload(true)
         }
     }
 
@@ -290,7 +294,7 @@ const RegisterProduct = () => {
 
                             </Grid>
 
-                            <button className="sendButton" onClick={sendInformation} type="submit">Publicar Producto</button>
+                            <button className="sendButton" onClick={sendInformation} disabled={!upload} type="submit">Publicar Producto</button>
 
                         </Grid>
                     </Grid>

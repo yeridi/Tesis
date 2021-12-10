@@ -66,6 +66,7 @@ const Post = () => {
         const response = await list();
         if (response.ok) {
             setInfo(response.data);
+            console.log(response.data)
         }
     }
 
@@ -117,7 +118,7 @@ const Post = () => {
                 <h1>Posts de la comunidad</h1>
                 <img src={community2} alt="" />
                 <button type="button" onClick={handleOpen} className={classes.button}>
-                    Subir mi post
+                    Subir mi publicación
                 </button>
                 <Grid
                     container

@@ -19,6 +19,8 @@ const Header = () => {
     const user = useSelector(selectUserPhoto);
     const type = useSelector(selectUserType);
 
+    const id = window.localStorage.getItem('idEnterprice')
+
     const enterprise = window.localStorage.getItem('hasEnterprise')
     console.log(enterprise)
 
@@ -83,6 +85,7 @@ const Header = () => {
                                                     <ul className="mega-links">
                                                         <li><a href="/product">Ver productos</a></li>
                                                         <li><a href="/producto/nuevo">Subir producto</a></li>
+                                                        <li><a href={`/business/go/${id}`}>Ver mis productos</a></li>
                                                     </ul>
                                                 </div>
 
@@ -90,7 +93,7 @@ const Header = () => {
                                                     <header>Empresa</header>
                                                     {enterprise === 'true' ?
                                                         <ul className="mega-links">
-                                                            <li><a href="/datos/empresa">Mi Empresa</a></li>
+                                                            <li><a href={`/mi/empresa/${id}`}>Mi Empresa</a></li>
                                                         </ul>
                                                         :
                                                         <ul className="mega-links">

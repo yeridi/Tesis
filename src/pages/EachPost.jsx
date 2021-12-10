@@ -68,7 +68,7 @@ const EachPost = (props) => {
                     </div>
                     <div className="right__comments">
                         <h4>Comentarios</h4>
-                        {
+                        {data &&
                             data.comments.map((i) => (
                                 <div className="each__comment">
                                     <p>{i.content}</p>

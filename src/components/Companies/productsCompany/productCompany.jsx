@@ -1,34 +1,56 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductCard from '../../Product/productCard/ProductCard'
-
+import Loader from '../../loader/Loader'
 import styled from 'styled-components'
 
+import { enterpriseProducts } from '../../../services/products'
+
 function ProductCompany() {
-    const APP_ID = '659c02d4';
-    const APP_KEY = '0df9fcf9f827f56c4e5f94f6ba100781';
 
     const [info, setInfo] = useState([])
-    const [query,setQuery] = useState('chicken');
+    const [load, setLoad] = useState(true)
 
-    const exampleReq = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
-
-    useEffect(()=>{
+    /* seEffect(() => {
         getProducts()
-    },[query])
+    }, []) */
 
-    const getProducts = async() =>{
+    /* const getProducts = async () => {
         const response = await fetch(exampleReq);
         const data = await response.json()
         setInfo(data.hits)
+    } */
+
+    const loadData = async () => {
+        const id = window.localStorage.getItem('idEnterprice')
+        const response = await enterpriseProducts(id);
+        console.log(response.data)
+        setInfo(response.data)
+        setLoad(null)
+    }
+
+    useEffect(() => {
+        loadData()
+    }, [])
+
+    if (load) {
+        return (
+            <Loader />
+        )
     }
 
     return (
         <ProductCompanyContainer>
-            {
-                info.map(productos=>(
-                    <ProductCard 
-                        title={productos.recipe.label} 
-                        image={productos.recipe.image}
+            {info == "" ?
+                <h3>Aun no hay productos en la empresa :(</h3>
+                :
+                info.map(infos => (
+                    <ProductCard
+                        key={infos._id}
+                        name={infos.name}
+                        description={infos.description}
+                        img={infos.images}
+                        id={infos._id}
+                        price={infos.price}
                     />
                 ))
             }

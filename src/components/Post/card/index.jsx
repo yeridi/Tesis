@@ -19,7 +19,7 @@ const CardPost = ({ title, description, important, id, myId }) => {
     return (
 
         <>
-            <a href={`/posts/${myId}`} className="link__post">
+            <a /* href={`/posts/${myId}`} */ className="link__post">
                 <Card >
                     <CardActionArea>
                         <CardMedia
@@ -36,7 +36,7 @@ const CardPost = ({ title, description, important, id, myId }) => {
                         </CardContent>
                         {important &&
                             <CardActions>
-                                <button className='my__post' onClick={handleDelete}>Eliminar Post</button>
+                                <button className='my__post' onClick={handleDelete}>Eliminar Publicación</button>
                             </CardActions>
                         }
                     </CardActionArea>

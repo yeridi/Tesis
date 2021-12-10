@@ -30,6 +30,7 @@ import Register from '../../pages/Register'
 import Post from '../../pages/Post'
 import MyPost from '../../pages/MyPost'
 import EachPost from '../../pages/EachPost'
+import MyCompany from '../../pages/MyCompany'
 
 
 const App = () => {
@@ -38,7 +39,6 @@ const App = () => {
     /* login */
     const dispatch = useDispatch();
     const history = useHistory();
-
 
     const type = useSelector(selectUserType)
 
@@ -58,6 +58,7 @@ const App = () => {
                 //the user dont exist
             }
         })
+        /* handleLoadRegister() */
     }, [user])
 
 
@@ -82,6 +83,7 @@ const App = () => {
                     <Route exact path="/registrarse" component={Register}></Route>
                     <Route exact path="/producto/nuevo" component={RegisterProd}></Route>
                     <Route exact path="/datos/empresa" component={CompanyRegister}></Route>
+                    <Route exact path="/mi/empresa/:id" component={MyCompany}></Route>
                     <Route exact path="/preguntas" component={Questions}></Route>
                     <Route exact path="/posts" component={Post}></Route>
                     <Route exact path="/mis/posts" component={MyPost}></Route>

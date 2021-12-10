@@ -42,3 +42,13 @@ export const isEnterprise = async (id) => {
         return error.message;
     }
 }
+
+export const deleteEnterprise = async (id) => {
+    try {
+        const response = await fetch(`${URL}/remove/${id}`, METHODS.DELETE());
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return error.message;
+    }
+}
