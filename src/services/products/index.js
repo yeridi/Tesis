@@ -5,7 +5,7 @@ const URL = `${baseURL}api/v1/product`;
 
 export const list = async () => {
     try {
-        const response = await fetch(`${URL}/all`, METHODS.GET());
+        const response = await fetch(`${URL}/filter?limit=100&page=0`, METHODS.GET());
         const data = await response.json();
         return data;
     } catch (error) {

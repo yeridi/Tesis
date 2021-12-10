@@ -77,6 +77,7 @@ const SelectProduct = ({ data }) => {
                                     <li>Capacidad: <span> {data.capacity}</span></li>
                                     <li>Cantidad de unidades: <span> {data.stock} </span></li>
                                     <li>Modelo: <span>{data.model}</span></li>
+                                    <li>Marca: <span>{data.brand}</span></li>
                                 </ul>
                             </div>
                             <div className="more-information-product">

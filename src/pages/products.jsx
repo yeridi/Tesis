@@ -18,41 +18,59 @@ import { list } from '../services/products'
 
 
 
+
+
 const Product = () => {
 
 
-    const [info, setInfo] = useState();
 
     const [load, setLoad] = useState(true);
 
+    const [filter, setFilter] = useState('')
 
-    /* for the function of search */
+    const [info, setInfo] = useState()
 
-    const [inputText, setInputText] = useState("");
+    const [text, setText] = useState('')
+
 
     const getProducts = async () => {
         const response = await list();
 
         setInfo(response.data)
-        console.log(response.data)
-        /* setInfo(response.hits)
-        console.log(response.hits)
-        setLoad(false) */
+    }
+
+    const loadData = async () => {
+        const response = await list(info)
+        console.log(response)
     }
 
     useEffect(() => {
         getProducts();
     }, []);
 
-    /* const getSearch = e => {
-        e.preventDefault();
-        setQuery(inputText);
-    } */
 
-    /* const filterProducts = (e) => {
-        setQuery(e.target.value)
+
+    const filterProducts = (e) => {
+        setFilter(e.target.value)
         console.log(e.target.value)
-    } */
+    }
+
+    const getSearch = async (e) => {
+        e.preventDefault();
+        const response = await fetch('https://termoconfort-test1.herokuapp.com/api/v1/product/filter-post?limit=100&page=0', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'Application/json',
+            },
+            body: JSON.stringify({ name: text })
+        })
+
+        const data = await response.json();
+        setInfo(data.data)
+    }
+
+
 
 
     /* if (load) {
@@ -68,25 +86,26 @@ const Product = () => {
 
             {/* Items - Product */}
             <div className="container__items">
-                <Search
-                /* setInputText={setInputText}
-                getSearch={getSearch} */
-                />
-                {/* <form onSubmit={getSeearch} className="search__form">
+                {/* <Search
+                    setInputText={setInputText}
+                    getSearch={getSearch}
+                /> */}
+                <form onSubmit={getSearch} className="search__form">
                     <div className="search__box">
-                        <input type="text"  className="search__bar" value={search} onChange={updateSearch} placeholder="Buscar..."/>
+                        <input type="text" className="search__bar" value={text} onChange={(e) => setText(e.target.value)} placeholder="Buscar..." />
                         <button type="submit" className="searh__button"><i class="fas fa-search"></i></button>
                     </div>
-                </form> */}
+                </form>
 
                 <div className="product-and-filter">
                     {/* Filter */}
                     <div className="filters">
                         <div className="each-filter">
-                            <h2>FILTERS</h2>
+                            <h2>FILTROS</h2>
                             <Selected
-                            /* filterProducts={filterProducts}
-                            newvalue={query} */
+                                setInfo={setInfo}
+                            /* filterProducts={filterProducts} */
+                            /*  newvalue={query} */
                             />
                         </div>
                     </div>

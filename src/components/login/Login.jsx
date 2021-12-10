@@ -51,21 +51,21 @@ function Login() {
                         <h3>Go App</h3>
                     </div>
                     <div class="login__text">
-                        <h2>Wait a moment !!!!</h2>
-                        <p>Sign in to continue</p>
+                        <h2>Espera un momento!!</h2>
+                        <p>Inicia sesión para continuar</p>
                     </div>
 
                 </div>
 
                 <div class="login__rightSection">
-                    <h3>Sign In</h3>
+                    <h3>Iniciar Sesión</h3>
                     <button onClick={handleAuth}><i class="fab fa-google"></i>Google</button>
                     {
                         security &&
                         <button onClick={handleContinue}>Continuar</button>
                     }
                     <div class="login__advantages">
-                        <p>If you are login in the App you can submit your product and enter to the comunity</p>
+                        <p>Si aun no tienes cuenta, puedes resitrarte <a href="/registrarse">aqui</a></p>
                     </div>
                 </div>
             </div>

@@ -78,7 +78,7 @@ const Header = () => {
                                         <div className="mega-box">
                                             <div className="content">
                                                 <div className="row">
-                                                    <img src="img.jpg" alt="" />
+                                                    <img src="https://media.discordapp.net/attachments/761675275451760710/918724001956778054/air-conditioning-system-picture-id118435672.png" alt="" />
                                                 </div>
                                                 <div className="row">
                                                     <header>Productos</header>

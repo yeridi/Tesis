@@ -50,6 +50,8 @@ const RegisterProduct = () => {
 
     const idEnterprise = window.localStorage.getItem('idEnterprice');
 
+    console.log(idEnterprise)
+
     const id = window.localStorage.getItem('id')
 
     const [enterprise, setEnterprise] = useState()
@@ -65,7 +67,7 @@ const RegisterProduct = () => {
         type: '',
         energyConsume: '',
         install: false,
-        warrancy: '',
+        warranty: false,
         stock: ''
     })
 
@@ -102,10 +104,14 @@ const RegisterProduct = () => {
         formData.append('type', data.type);
         formData.append('energyConsume', data.energyConsume);
         formData.append('install', data.install);
-        formData.append('warrancy', data.warrancy);
+        formData.append('warranty', data.warranty);
         formData.append('stock', data.stock);
 
         formData.append('enterpriseId', window.localStorage.getItem('idEnterprice'));
+
+        if (fields.length == 0) {
+            alert('ingrese todos los campos')
+        }
 
 
         const response = await fetch('https://termoconfort-test1.herokuapp.com/api/v1/product/store', {
@@ -113,7 +119,6 @@ const RegisterProduct = () => {
             body: formData
         });
 
-        /* const response = await creatingProduct(formData) */
         const information = await response.json();
         console.log(information)
         if (information.ok == true) {
@@ -130,7 +135,7 @@ const RegisterProduct = () => {
     useEffect(() => {
         loadEnterprise()
     }, [])
-    if (enterprise == false) {
+    if (idEnterprise == null || idEnterprise == false) {
         return (
             <>
                 <div className="container__denied">
@@ -164,7 +169,7 @@ const RegisterProduct = () => {
                         spacing={5}
                     >
                         <Grid item sm={6} xs={12}>
-                            <h2 className={classes.subtitle}>Informacion del producto</h2>
+                            <h2 className={classes.subtitle}>Información del producto</h2>
                             <Grid container spacing={3}>
                                 <Grid item sm={6} xs={12}>
                                     <TextField
@@ -175,6 +180,7 @@ const RegisterProduct = () => {
                                         value={data.name}
                                         className={classes.input}
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -187,6 +193,7 @@ const RegisterProduct = () => {
                                         className={classes.input}
                                         onChange={handleInputChanges}
                                         type="number"
+                                        required
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -198,6 +205,7 @@ const RegisterProduct = () => {
                                         value={data.brand}
                                         className={classes.input}
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -209,6 +217,7 @@ const RegisterProduct = () => {
                                         value={data.capacity}
                                         className={classes.input}
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -220,6 +229,7 @@ const RegisterProduct = () => {
                                         value={data.model}
                                         className={classes.input}
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -231,6 +241,7 @@ const RegisterProduct = () => {
                                         value={data.type}
                                         className={classes.input}
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -242,6 +253,7 @@ const RegisterProduct = () => {
                                         value={data.energyConsume}
                                         className={classes.input}
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
                                 <Grid item sm={6} xs={12}>
@@ -254,6 +266,7 @@ const RegisterProduct = () => {
                                         className={classes.input}
                                         type="number"
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -265,6 +278,7 @@ const RegisterProduct = () => {
                                         name="description"
                                         value={data.description}
                                         onChange={handleInputChanges}
+                                        required
                                     />
                                 </Grid>
 
@@ -280,6 +294,18 @@ const RegisterProduct = () => {
                                     }
                                     label="Garantia"
                                 />
+                                <FormControlLabel
+                                    name="install"
+                                    className={classes.install}
+                                    control={
+                                        <Checkbox
+                                            name="install"
+                                            onChange={handleInputChanges}
+                                            color="primary"
+                                        />
+                                    }
+                                    label="Instalación"
+                                />
                                 <Grid item xs={12}>
                                     <h5>Seleccione 3 imagenes</h5>
                                     <input
@@ -294,7 +320,7 @@ const RegisterProduct = () => {
 
                             </Grid>
 
-                            <button className="sendButton" onClick={sendInformation} disabled={!upload} type="submit">Publicar Producto</button>
+                            <button className="sendButton" disabled={!upload} type="submit">Publicar Producto</button>
 
                         </Grid>
                     </Grid>
